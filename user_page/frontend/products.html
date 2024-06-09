@@ -65,27 +65,26 @@
                      <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                      </li>
-                    
+                     <!-- products dropdown -->
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Products
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                           <a class="dropdown-item" href="shop2.html">Shop 2</a>
+                           <a class="dropdown-item" href="shop3.html">Shop 3</a>
+                           <a class="dropdown-item" href="shop4.html">Shop 4</a>
+                     </div>
+                     </li>
+                     </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="shop.html">Shop</a>
+                        <a class="nav-link" href="cart.html">Cart</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="blog.html">Blog</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="shop1.html">Product1</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="shop2.html">Product2</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="shop3.html">Product3</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="shop4.html">Product4</a>
                      </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
@@ -105,7 +104,7 @@
       <div class="coffee_section layout_padding">
          <div class="container">
             <div class="row">
-               <h1 class="coffee_taital">Product1</h1>
+               <h1 class="coffee_taital">Coffees</h1>
                <div class="bulit_icon"><img src="images/bulit-icon.png"></div>
             </div>
          </div>
@@ -115,35 +114,9 @@
                   <div class="carousel-item active">
                      <div class="container-fluid">
                         <div class="row">
-                           <div class="col-lg-3 col-md-6">
-                              <div class="coffee_img"><img src="images/img-1.png"></div>
-                              <h3 class="types_text">product</h3>
-                              <p class="looking_text">Price</p>
-                              <div class="read_bt"><a href="shop.html">Mua ngay</a></div>
-                           </div>
-
-
-                           <div class="col-lg-3 col-md-6">
-                              <div class="coffee_img"><img src="images/img-2.png"></div>
-                              <h3 class="types_text">product</h3>
-                              <p class="looking_text">Price</p>
-                              <div class="read_bt"><a href="shop.html">Mua ngay</a></div>
-                           </div>
-                           <div class="col-lg-3 col-md-6">
-                              <div class="coffee_img"><img src="images/img-3.png"></div>
-                              <h3 class="types_text">product</h3>
-                              <p class="looking_text">Price</p>
-                              <div class="read_bt"><a href="shop.html">Mua ngay</a></div>
-                           </div>
-                           <div class="col-lg-3 col-md-6">
-                              <div class="coffee_img"><img src="images/img-4.png"></div>
-                              <h3 class="types_text">product</h3>
-                              <p class="looking_text">Price</p>
-                              <div class="read_bt"><a href="shop.html">Mua ngay</a></div>
-                           </div>
-                         
-
-                           </div>
+                           <?php
+                           include 'fetch_products.php';
+                           ?>
 
                         </div>
                      </div>
@@ -154,26 +127,26 @@
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="images/img-1.png"></div>
                               <h3 class="types_text">product</h3>
-                              <p class="looking_text">Price</p>
-                              <div class="read_bt"><a href="shop.h">Mua ngay</a></div>
+                              <p class="looking_text">looking at its layout. The point of</p>
+                              <div class="read_bt"><a href="shop1.html">Read More</a></div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="images/img-2.png"></div>
                               <h3 class="types_text">product</h3>
-                              <p class="looking_text">Price</p>
-                              <div class="read_bt"><a href="shop.html">Mua ngay</a></div>
+                              <p class="looking_text">looking at its layout. The point of</p>
+                              <div class="read_bt"><a href="shop2.html">Read More</a></div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="images/img-3.png"></div>
                               <h3 class="types_text">product</h3>
-                              <p class="looking_text">Price</p>
-                              <div class="read_bt"><a href="shop.html">Mua ngay</a></div>
+                              <p class="looking_text">looking at its layout. The point of</p>
+                              <div class="read_bt"><a href="shop3.html">Read More</a></div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="images/img-4.png"></div>
                               <h3 class="types_text">product</h3>
-                              <p class="looking_text">Price</p>
-                              <div class="read_bt"><a href="shop.html">Mua ngay</a></div>
+                              <p class="looking_text">looking at its layout. The point of</p>
+                              <div class="read_bt"><a href="shop4.html">Read More</a></div>
                            </div>
                         </div>
                      </div>
@@ -184,26 +157,26 @@
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="images/img-1.png"></div>
                               <h3 class="types_text">product</h3>
-                              <p class="looking_text">Price</p>
-                              <div class="read_bt"><a href="shop.html">Mua ngay</a></div>
+                              <p class="looking_text">looking at its layout. The point of</p>
+                              <div class="read_bt"><a href="shop1.html">Read More</a></div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="images/img-2.png"></div>
                               <h3 class="types_text">product</h3>
-                              <p class="looking_text">Price</p>
-                              <div class="read_bt"><a href="shop.html">Mua ngay</a></div>
+                              <p class="looking_text">looking at its layout. The point of</p>
+                              <div class="read_bt"><a href="shop2.html">Read More</a></div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="images/img-3.png"></div>
                               <h3 class="types_text">product</h3>
-                              <p class="looking_text">Price</p>
-                              <div class="read_bt"><a href="shop.html">Mua ngay</a></div>
+                              <p class="looking_text">looking at its layout. The point of</p>
+                              <div class="read_bt"><a href="shop3.html">Read More</a></div>
                            </div>
                            <div class="col-lg-3 col-md-6">
                               <div class="coffee_img"><img src="images/img-4.png"></div>
                               <h3 class="types_text">product</h3>
-                              <p class="looking_text">Price</p>
-                              <div class="read_bt"><a href="shop.html">Mua ngay</a></div>
+                              <p class="looking_text">looking at its layout. The point of</p>
+                              <div class="read_bt"><a href="shop4.html">Read More</a></div>
                            </div>
                         </div>
                      </div>
