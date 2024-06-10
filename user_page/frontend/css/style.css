@@ -486,12 +486,23 @@ button {
     text-align: center;
     margin: 0px;
 }
+.add_to_cart button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    outline: inherit;
+}
+.add_to_cart button:focus {
+    outline: none;
+}
 
 .read_bt {
     width: 170px;
     margin: 0 auto;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 0px;
     display: flex;
 }
 
