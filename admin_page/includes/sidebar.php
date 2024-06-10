@@ -34,10 +34,10 @@
     <div id="collapseProduct" class="collapse" aria-labelledby="headingProduct" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Các chức năng:</h6>
-            <a class="collapse-item" href="buttons.html">Liệt kê</a>
-            <a class="collapse-item" href="cards.html">Thêm mới sản phẩm</a>
-            <a class="collapse-item" href="cards.html">Chỉnh sửa sản phẩm</a>
-            <a class="collapse-item" href="cards.html">Xóa sản phẩm</a>
+            <a class="collapse-item" href="lietkesanpham.php">Liệt kê</a>
+            <a class="collapse-item" href="themmoisanpham.php">Thêm mới sản phẩm</a>
+            <a class="collapse-item" href="chinhsuasanpham.php">Chỉnh sửa sản phẩm</a>
+            <a class="collapse-item" href="xoasanpham.php">Xóa sản phẩm</a>
         </div>
     </div>
 </li>
@@ -51,8 +51,8 @@
     <div id="collapseOrders" class="collapse" aria-labelledby="headingOrders" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Các chức năng:</h6>
-            <a class="collapse-item" href="utilities-color.html">Xem danh sách đơn hàng</a>
-            <a class="collapse-item" href="utilities-border.html">Duyệt đơn hàng</a>
+            <a class="collapse-item" href="lietkedonhang.php">Xem danh sách đơn hàng</a>
+            <a class="collapse-item" href="chinhsuadonhang.php">Duyệt đơn hàng</a>
         </div>
     </div>
 </li>
@@ -66,9 +66,9 @@
     <div id="collapseBlog" class="collapse" aria-labelledby="headingBlog" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Các chức năng:</h6>
-            <a class="collapse-item" href="utilities-color.html">Xem blog</a>
-            <a class="collapse-item" href="utilities-border.html">Thêm blog</a>
-            <a class="collapse-item" href="utilities-border.html">Xóa blog</a>
+            <a class="collapse-item" href="lietkeblog.php">Xem blog</a>
+            <a class="collapse-item" href="themmoiblog.php">Thêm blog</a>
+            <a class="collapse-item" href="xoablog.php">Xóa blog</a>
         </div>
     </div>
 </li>
