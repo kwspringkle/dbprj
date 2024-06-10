@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2024 at 11:57 AM
+-- Generation Time: Jun 10, 2024 at 06:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -171,7 +171,7 @@ CREATE TABLE `orders_detail` (
 --
 
 INSERT INTO `orders_detail` (`id`, `orders_id`, `products_id`, `quantity`) VALUES
-(1, 1, 1, 2),
+(1, 1, NULL, 2),
 (2, 1, 2, 1),
 (3, 2, 3, 3),
 (4, 2, 4, 1),
@@ -336,7 +336,7 @@ ALTER TABLE `orders`
 ALTER TABLE `orders_detail`
   ADD UNIQUE KEY `id` (`id`),
   ADD KEY `orders_id` (`orders_id`),
-  ADD KEY `products_id` (`products_id`);
+  ADD KEY `orders_detail_ibfk_2` (`products_id`);
 
 --
 -- Indexes for table `products`
@@ -389,7 +389,7 @@ ALTER TABLE `orders_detail`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -431,7 +431,7 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `orders_detail`
   ADD CONSTRAINT `orders_detail_ibfk_1` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `orders_detail_ibfk_2` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `orders_detail_ibfk_2` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
