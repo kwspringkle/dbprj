@@ -129,18 +129,21 @@ const changeQuantityCart = (product_id, type) => {
 }
 
 const initApp = () => {
-    // get data product
+    // Lấy dữ liệu sản phẩm từ cơ sở dữ liệu MySQL thông qua PHP
     fetch('js/product.json')
     .then(response => response.json())
     .then(data => {
         products = data;
         addDataToHTML();
 
-        // get data cart from memory
+        // Lấy dữ liệu giỏ hàng từ bộ nhớ
         if(localStorage.getItem('cart')){
             cart = JSON.parse(localStorage.getItem('cart'));
             addCartToHTML();
         }
     })
+    .catch(error => console.error('Error:', error));
 }
+
+// Gọi hàm initApp để bắt đầu quá trình khởi tạo ứng dụng
 initApp();
