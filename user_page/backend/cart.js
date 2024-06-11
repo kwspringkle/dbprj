@@ -19,21 +19,20 @@ closeCart.addEventListener('click', () => {
     // remove datas default from HTML
 
         // add new datas
-        if (products.length > 0) {
+        if(products.length > 0) // if has data
+        {
             products.forEach(product => {
                 let newProduct = document.createElement('div');
                 newProduct.dataset.id = product.id;
                 newProduct.classList.add('item');
-                newProduct.innerHTML = `
-                    <img src="${product.image}" alt="">
-                    <h2>${product.name}</h2>
-                    <div class="price">$${product.price}</div>
-                    <p>${product.description}</p> <!-- Add the description here -->
-                    <button class="addCart">Add To Cart</button>`;
+                newProduct.innerHTML = 
+                `<img src="${product.image}" alt="">
+                <h2>${product.name}</h2>
+                <div class="price">$${product.price}</div>
+                <button class="addCart">Add To Cart</button>`;
                 listProductHTML.appendChild(newProduct);
             });
         }
-        
     }
     listProductHTML.addEventListener('click', (event) => {
         let positionClick = event.target;
@@ -130,18 +129,21 @@ const changeQuantityCart = (product_id, type) => {
 }
 
 const initApp = () => {
-    // get data product
-    fetch('product.json')
+    // Lấy dữ liệu sản phẩm từ cơ sở dữ liệu MySQL thông qua PHP
+    fetch('get_products.php')
     .then(response => response.json())
     .then(data => {
         products = data;
         addDataToHTML();
 
-        // get data cart from memory
+        // Lấy dữ liệu giỏ hàng từ bộ nhớ
         if(localStorage.getItem('cart')){
             cart = JSON.parse(localStorage.getItem('cart'));
             addCartToHTML();
         }
     })
+    .catch(error => console.error('Error:', error));
 }
+
+// Gọi hàm initApp để bắt đầu quá trình khởi tạo ứng dụng
 initApp();
