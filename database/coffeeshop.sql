@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2024 at 06:13 PM
+-- Generation Time: Jun 12, 2024 at 12:26 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -102,8 +102,8 @@ CREATE TABLE `messages` (
 
 INSERT INTO `messages` (`id`, `users_id`, `content`, `sent_at`) VALUES
 (1, 1, 'Nho và Chuối', '2024-06-10 16:50:27'),
-(2, 2, 'Cà phê của cửa hàng rất ngon', '2024-06-10 16:50:27'),
-(3, 3, 'Mình rất thích không gian ở đây, rất ấm cúng và thoải mái', '2024-06-10 16:50:27'),
+(2, 2, 'Cà phê của cửa hàng rất ngon', '2024-06-10 16:50:28'),
+(3, 3, 'Mình rất thích không gian ở đây, rất ấm cúng và thoải mái', '2024-06-10 16:50:29'),
 (4, 4, 'Nhân viên phục vụ rất nhiệt tình và chu đáo', '2024-06-10 16:50:27'),
 (5, 5, 'Bánh ngọt của cửa hàng rất ngon, đặc biệt là bánh tiramisu', '2024-06-10 16:50:27'),
 (6, 6, 'Thức uống matcha latte ở đây rất đậm đà', '2024-06-10 16:50:27'),
@@ -143,15 +143,16 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `users_id`, `status`, `created_at`, `payment_method`, `address_id`) VALUES
 (1, 1, 'delivered', '2024-06-10 16:55:23', 'QR', 2),
-(2, 2, 'received', '2024-06-10 16:55:23', '', 3),
-(3, 3, 'processing', '2024-06-10 16:55:23', '', 4),
+(2, 2, 'received', '2024-06-10 16:55:23', 'COD', 3),
+(3, 3, 'processing', '2024-06-10 16:55:23', 'COD', 4),
 (4, 4, 'delivered', '2024-06-10 16:55:23', 'QR', 5),
-(5, 5, 'received', '2024-06-10 16:55:23', '', 6),
-(6, 6, 'processing', '2024-06-10 16:55:23', '', 7),
+(5, 5, 'received', '2024-06-10 16:55:23', 'QR', 6),
+(6, 6, 'processing', '2024-06-10 16:55:23', 'QR', 7),
 (7, 7, 'delivered', '2024-06-10 16:55:23', 'QR', 8),
-(8, 8, 'received', '2024-06-10 16:55:23', '', 9),
-(9, 9, 'processing', '2024-06-10 16:55:23', '', 10),
-(10, 10, 'delivered', '2024-06-10 16:55:23', 'QR', 1);
+(8, 8, 'received', '2024-06-10 16:55:23', 'COD', 9),
+(9, 9, 'processing', '2024-06-10 16:55:23', 'COD', 10),
+(10, 10, 'delivered', '2024-06-10 16:55:23', 'QR', 1),
+(11, 1, 'delivered', '2024-06-11 17:11:23', 'COD', 1);
 
 -- --------------------------------------------------------
 
@@ -160,7 +161,6 @@ INSERT INTO `orders` (`id`, `users_id`, `status`, `created_at`, `payment_method`
 --
 
 CREATE TABLE `orders_detail` (
-  `id` int(11) NOT NULL,
   `orders_id` int(11) DEFAULT NULL,
   `products_id` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL
@@ -170,27 +170,29 @@ CREATE TABLE `orders_detail` (
 -- Dumping data for table `orders_detail`
 --
 
-INSERT INTO `orders_detail` (`id`, `orders_id`, `products_id`, `quantity`) VALUES
-(1, 1, NULL, 2),
-(2, 1, 2, 1),
-(3, 2, 3, 3),
-(4, 2, 4, 1),
-(5, 3, 5, 2),
-(6, 3, 6, 2),
-(7, 4, 7, 1),
-(8, 4, 8, 3),
-(9, 5, 9, 4),
-(10, 5, 10, 2),
-(11, 6, 11, 2),
-(12, 6, 12, 1),
-(13, 7, 13, 3),
-(14, 7, 14, 2),
-(15, 8, 15, 1),
-(16, 8, 16, 4),
-(17, 9, 17, 2),
-(18, 9, 18, 1),
-(19, 10, 19, 3),
-(20, 10, 20, 2);
+INSERT INTO `orders_detail` (`orders_id`, `products_id`, `quantity`) VALUES
+(1, 1, 2),
+(1, 2, 1),
+(2, 3, 3),
+(2, 4, 1),
+(3, 5, 2),
+(3, 6, 2),
+(4, 7, 1),
+(4, 8, 3),
+(5, 9, 4),
+(5, 10, 2),
+(6, 11, 2),
+(6, 12, 1),
+(7, 13, 3),
+(7, 14, 2),
+(8, 15, 1),
+(8, 16, 4),
+(9, 17, 2),
+(9, 18, 1),
+(10, 19, 3),
+(10, 20, 2),
+(11, 43, 2),
+(11, 21, 2);
 
 -- --------------------------------------------------------
 
@@ -263,7 +265,8 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `image`) VALUES
 (50, 'Mochi Kem Matcha', 'Bao bọc bởi lớp vỏ Mochi dẻo thơm, bên trong là lớp kem lạnh cùng nhân trà xanh đậm vị. Gọi 1 chiếc Mochi cho ngày thật tươi mát. Sản phẩm phải bảo quán mát và dùng ngon nhất trong 2h sau khi nhận hàng.', 19000, 'https://product.hstatic.net/1000075078/product/1655348113_mochi-traxanh_3870d63621f4461e97a37c5587b443e7.jpg'),
 (51, 'Mochi Kem Xoài', 'Bao bọc bởi lớp vỏ Mochi dẻo thơm, bên trong là lớp kem lạnh cùng nhân xoài chua chua ngọt ngọt. Gọi 1 chiếc Mochi cho ngày thật tươi mát. Sản phẩm phải bảo quán mát và dùng ngon nhất trong 2h sau khi nhận hàng.', 19000, 'https://product.hstatic.net/1000075078/product/1643101968_mochi-xoai_c96ea42d1f594cf9b556025f7b8f9127.jpg'),
 (52, 'Mochi Kem Chocolate', 'Bao bọc bởi lớp vỏ Mochi dẻo thơm, bên trong là lớp kem lạnh cùng nhân chocolate độc đáo. Gọi 1 chiếc Mochi cho ngày thật tươi mát. Sản phẩm phải bảo quán mát và dùng ngon nhất trong 2h sau khi nhận hàng.', 19000, 'https://product.hstatic.net/1000075078/product/1655348107_mochi-choco_c67fbdf8a2cf48a28feb45ed80d4d8d2.jpg'),
-(53, 'Mochi Kem Việt Quất', 'Bao bọc bởi lớp vỏ Mochi dẻo thơm, bên trong là lớp kem lạnh cùng nhân việt quất đặc trưng thơm thơm, ngọt dịu. Gọi 1 chiếc Mochi cho ngày thật tươi mát. Sản phẩm phải bảo quán mát và dùng ngon nhất trong 2h sau khi nhận hàng.', 19000, 'https://product.hstatic.net/1000075078/product/1643102034_mochi-vietquat_60f8ad4a6a8b4c6ebc376f45204cf47e.jpg');
+(55, 'Mochi Kem Việt Quất', 'Bao bọc bởi lớp vỏ Mochi dẻo thơm, bên trong là \r\nlớp kem lạnh cùng nhân việt quất đặc trưng thơm thơm, ngọt dịu. Gọi 1 chiếc Mochi cho ngày thật tươi mát. \r\nSản phẩm phải bảo quán mát và dùng ngon nhất trong 2h sau khi nhận hàng.', 19000, NULL),
+(56, 'Liang Biang', 'Hương vị thuần khiết của trà Ô Long Đặc Sản cùng mứt hoa nhài thơm nhẹ.', 54000, NULL);
 
 -- --------------------------------------------------------
 
@@ -334,7 +337,6 @@ ALTER TABLE `orders`
 -- Indexes for table `orders_detail`
 --
 ALTER TABLE `orders_detail`
-  ADD UNIQUE KEY `id` (`id`),
   ADD KEY `orders_id` (`orders_id`),
   ADD KEY `orders_detail_ibfk_2` (`products_id`);
 
@@ -377,19 +379,13 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `orders_detail`
---
-ALTER TABLE `orders_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `users`
