@@ -18,7 +18,6 @@
                     <thead>
                         <tr>
                             <th>Mã blog</th>
-                            <th>Người viết</th>
                             <th>Tiêu đề</th>
                             <th>Nội dung</th>
                             <th>Hình ảnh</th>
@@ -29,15 +28,13 @@
                     <tbody>
                     <?php
                         require("db/conn.php");
-                        $sql_str = "select b.id,u.fullname, b.title, b.content, b.image, b.create_time, b.update_time 
-                        from blog_posts b 
-                        join users u on u.id = b.id";
+                        $sql_str = "select b.*
+                        from blog_posts b";
                         $result = mysqli_query($conn, $sql_str);
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                         <tr>
                             <td><?= htmlspecialchars($row['id']) ?></td>
-                            <td><?= htmlspecialchars($row['fullname']) ?></td>
                             <td><?= htmlspecialchars($row['title']) ?></td>
                             <td><?= htmlspecialchars($row['content']) ?></td>
                             <td><?= htmlspecialchars($row['image']) ?></td>
