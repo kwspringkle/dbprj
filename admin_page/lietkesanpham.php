@@ -1,5 +1,9 @@
 <?php include("includes/header.php"); ?>
-
+<style>
+    .table-responsive {
+    overflow-x: auto;
+}
+</style>
 <div>
     <h3>Tất cả sản phẩm </h3> 
     <div class="card shadow mb-4">

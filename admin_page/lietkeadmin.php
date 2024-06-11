@@ -7,42 +7,38 @@
 
 </style>
 <div>
-    <h3>Danh sách blog</h3>   
+    <h3>Danh sách admin</h3>   
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Danh sách blog</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách admin</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Mã blog</th>
-                            <th>Người viết</th>
-                            <th>Tiêu đề</th>
-                            <th>Nội dung</th>
+                            <th>ID</th>
+                            <th>Tên đăng nhập</th>
+                            <th>Password</th>
+                            <th>Họ tên</th>
+                            <th>Số điện thoại</th>
                             <th>Hình ảnh</th>
-                            <th>Thời gian tạo</th>
-                            <th>Thời gian chỉnh sửa</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
                         require("db/conn.php");
-                        $sql_str = "select b.id,u.fullname, b.title, b.content, b.image, b.create_time, b.update_time 
-                        from blog_posts b 
-                        join users u on u.id = b.id";
+                        $sql_str = "select * from users where role = 'admin';";
                         $result = mysqli_query($conn, $sql_str);
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                         <tr>
                             <td><?= htmlspecialchars($row['id']) ?></td>
+                            <td><?= htmlspecialchars($row['username']) ?></td>
+                            <td><?= htmlspecialchars($row['password']) ?></td>
                             <td><?= htmlspecialchars($row['fullname']) ?></td>
-                            <td><?= htmlspecialchars($row['title']) ?></td>
-                            <td><?= htmlspecialchars($row['content']) ?></td>
+                            <td><?= htmlspecialchars($row['phone']) ?></td>
                             <td><?= htmlspecialchars($row['image']) ?></td>
-                            <td><?= htmlspecialchars($row['create_time']) ?></td>
-                            <td><?= htmlspecialchars($row['update_time']) ?></td>
                         </tr>
                     <?php
                         }

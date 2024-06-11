@@ -82,8 +82,9 @@
     <div id="collapseUsers" class="collapse" aria-labelledby="headingUsers" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Các chức năng:</h6>
-            <a class="collapse-item" href="utilities-color.html">Xem danh sách admin</a>
-            <a class="collapse-item" href="utilities-border.html">Xem danh sách users</a>
+            <a class="collapse-item" href="lietkeadmin.php">Xem danh sách admin</a>
+            <a class="collapse-item" href="lietkeusers.php">Xem danh sách users</a>
+            <a class="collapse-item" href="lietkeusers.php">Thêm admin</a>
         </div>
     </div>
 </li>
@@ -97,7 +98,7 @@
     <div id="collapseMessages" class="collapse" aria-labelledby="headingMessages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Các chức năng:</h6>
-            <a class="collapse-item" href="utilities-color.html">Xem tin nhắn</a>
+            <a class="collapse-item" href="lietketinnhan.php">Xem tin nhắn</a>
         </div>
     </div>
 </li>
