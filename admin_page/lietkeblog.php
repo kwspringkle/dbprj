@@ -20,7 +20,7 @@
                             <th>Mã blog</th>
                             <th>Tiêu đề</th>
                             <th>Nội dung</th>
-                            <th>Hình ảnh</th>
+                            <!--th>Hình ảnh</th-->
                             <th>Thời gian tạo</th>
                             <th>Thời gian chỉnh sửa</th>
                         </tr>
@@ -34,12 +34,12 @@
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                         <tr>
-                            <td><?= htmlspecialchars($row['id']) ?></td>
+                            <td><?= htmlspecialchars($row['blog_id']) ?></td>
                             <td><?= htmlspecialchars($row['title']) ?></td>
                             <td><?= htmlspecialchars($row['content']) ?></td>
-                            <td><?= htmlspecialchars($row['image']) ?></td>
-                            <td><?= htmlspecialchars($row['create_time']) ?></td>
-                            <td><?= htmlspecialchars($row['update_time']) ?></td>
+                            <!--td><!--?= htmlspecialchars($row['image']) ?></td-->
+                            <td><?= htmlspecialchars($row['created_at']) ?></td>
+                            <td><?= htmlspecialchars($row['updated_at']) ?></td>
                         </tr>
                     <?php
                         }

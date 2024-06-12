@@ -19,26 +19,20 @@
                         <tr>
                             <th>ID</th>
                             <th>Tên đăng nhập</th>
-                            <th>Password</th>
                             <th>Họ tên</th>
-                            <th>Số điện thoại</th>
-                            <th>Hình ảnh</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
                         require("db/conn.php");
-                        $sql_str = "select * from users where role = 'admin';";
+                        $sql_str = "select admins_id, username, fullname from admins ;";
                         $result = mysqli_query($conn, $sql_str);
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                         <tr>
-                            <td><?= htmlspecialchars($row['id']) ?></td>
+                            <td><?= htmlspecialchars($row['admins_id']) ?></td>
                             <td><?= htmlspecialchars($row['username']) ?></td>
-                            <td><?= htmlspecialchars($row['password']) ?></td>
                             <td><?= htmlspecialchars($row['fullname']) ?></td>
-                            <td><?= htmlspecialchars($row['phone']) ?></td>
-                            <td><?= htmlspecialchars($row['image']) ?></td>
                         </tr>
                     <?php
                         }

@@ -19,6 +19,7 @@
                                             <th class = "small-column">Tên</th>
                                             <th class = "small-column">Giá</th>
                                             <th class = "small-column">Mô tả</th>
+                                            <!--th class = "small-column"><Hình ảnh</th-->
                                         </tr>
                                     </thead>
                                     <!--tfoot>
@@ -32,13 +33,13 @@
                                     <tbody>
                                     <?php
                                         require("db/conn.php");
-                                        $sql_str = "select * from products order by id ";
+                                        $sql_str = "select * from products order by products_id ";
                                         $result = mysqli_query($conn, $sql_str);
                                         while($row = mysqli_fetch_assoc($result)){
                                     ?>
 
                                         <tr>
-                                            <td><?=$row['id']?></td>
+                                            <td><?=$row['products_id']?></td>
                                             <td><?=$row['name']?></td>
                                             <td><?=$row['price']?></td>
                                             <td><?=$row['description']?></td>

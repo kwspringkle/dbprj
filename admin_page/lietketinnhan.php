@@ -26,19 +26,19 @@
                     <tbody>
                     <?php
                         require("db/conn.php");
-                        $sql_str = "SELECT messages.id AS message_id, users.id AS user_id, users.fullname, messages.content, messages.sent_at 
+                        $sql_str = "SELECT messages.msg_id AS msg_id, users.users_id AS user_id, users.fullname, messages.content, messages.created_at 
                                     FROM messages 
-                                    JOIN users ON users.id = messages.users_id 
-                                    ORDER BY messages.id";
+                                    JOIN users ON users.users_id = messages.users_id 
+                                    ORDER BY messages.created_at desc;";
                         $result = mysqli_query($conn, $sql_str);
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                     <tr>
-                        <td><?= htmlspecialchars($row['message_id']) ?></td>
+                        <td><?= htmlspecialchars($row['msg_id']) ?></td>
                         <td><?= htmlspecialchars($row['user_id']) ?></td>
                         <td><?= htmlspecialchars($row['fullname']) ?></td>
                         <td><?= htmlspecialchars($row['content']) ?></td>
-                        <td><?= htmlspecialchars($row['sent_at']) ?></td>
+                        <td><?= htmlspecialchars($row['created_at']) ?></td>
                     </tr>
                     <?php
                         }
