@@ -1,5 +1,38 @@
-<?php include("header.php");
-include("connectdb.php") ?>
+<?php 
+include("header.php");
+include("connectdb.php");
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve address, phone number, and payment method from the form
+    $address = mysqli_real_escape_string($conn, $_POST['address']);
+    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $payment_method = mysqli_real_escape_string($conn, $_POST['paymentMethod']);
+
+    // Check if the phone number exists in the users table
+    $check_query = "SELECT users_id FROM users WHERE phone = '$phone'";
+    $result = mysqli_query($conn, $check_query);
+
+    // If the phone number exists, retrieve user_id
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $user_id = $row['users_id'];
+
+        // Insert the order details into the order table
+        $insert_query = "INSERT INTO orders (users_id, address, payment_method) VALUES ('$user_id', '$address', '$payment_method')";
+        mysqli_query($conn, $insert_query);
+
+        // Output a success message
+        echo "Order placed successfully.";
+    } else {
+        // If the phone number does not exist, redirect to login page
+        echo "Phone number not found in the users table. <a href='login.php'>Click here to login</a>.";
+    }
+}
+?>
+
+
+
 
 <section class="h-100 h-custom" style="background-color: white;">
     <div class="container py-5 h-100">
@@ -18,7 +51,7 @@ include("connectdb.php") ?>
                                     <?php
                                     $sql_str = "SELECT id, name, price, image,quantity FROM cart";
                                     $result = mysqli_query($conn, $sql_str);
-                                    $total_price = 0; // Khởi tạo biến tổng số tiền
+                                    $total_price = 0; // Initialize total price variable
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         ?>
                                         <div class="row mb-4 d-flex justify-content-between align-items-center">
@@ -41,8 +74,8 @@ include("connectdb.php") ?>
 
                                         </div>
                                         <?php
-                                        // Tính tổng số tiền bằng cách nhân số lượng với giá tiền và cộng vào biến tổng
-                                        $total_price += $row['price']*$row['quantity']; // Cộng vào tổng giá tiền
+                                        // Calculate total price by multiplying quantity with price and adding to total variable
+                                        $total_price += $row['price'] * $row['quantity'];
                                     }
                                     ?>
 
@@ -67,50 +100,35 @@ include("connectdb.php") ?>
 
                                     <h5 class="text-uppercase mb-3">Shipping</h5>
 
-                                    <div class="mb-4 pb-2">
-                                        <select data-mdb-select-init>
-                                            <option value="1">Standard-Delivery- €5.00</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                            
-                                        </select>
-                                    </div>
-
-                                    <h5 class="text-uppercase mb-3">Name</h5>
-                                    <div class="mb-5">
-                                        <div data-mdb-input-init class="form-outline">
-                                            <input type="text" id="form3Examplea2" class="form-control form-control-lg"/>
-                                        </div>
-                                    </div>
+                                   
+                                    <form role="form" method="POST">
 
                                     <h5 class="text-uppercase mb-3">Address</h5>
                                     <div class="mb-5">
                                         <div data-mdb-input-init class="form-outline">
-                                            <input type="text" id="form3Examplea2" class="form-control form-control-lg"/>
+                                            <input type="text" name="address" class="form-control form-control-lg"/>
                                         </div>
                                     </div>
 
                                     <h5 class="text-uppercase mb-3">Phone</h5>
                                     <div class="mb-5">
                                         <div data-mdb-input-init class="form-outline">
-                                            <input type="text" id="form3Examplea2" class="form-control form-control-lg"/>
+                                            <input type="text" name="phone" class="form-control form-control-lg"/>
                                         </div>
                                     </div>
-
                                     <div class="row mb-5">
-                                        <div class="col-md-6">
-                                            <h4 class="text-uppercase mb-3">Payment Method</h4>
+                                    <div class="col-md-6">
+                                        <h4 class="text-uppercase mb-3">Payment Method</h4>
+                                        <div id="paymentForm" method="POST" action="process_payment.php">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="paymentMethod"
-                                                       id="paymentCash" value="cash" checked>
+                                                <input class="form-check-input" type="radio" name="paymentMethod" id="paymentCash" value="cash" checked>
                                                 <label class="form-check-label" for="paymentCash">Cash</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="paymentMethod"
-                                                       id="paymentQR" value="qr">
+                                                <input class="form-check-input" type="radio" name="paymentMethod" id="paymentQR" value="qr">
                                                 <label class="form-check-label" for="paymentQR">QR Code</label>
                                             </div>
-                                        </div>
+                                           
                                     </div>
                                 </div>
                             </div>
@@ -126,8 +144,10 @@ include("connectdb.php") ?>
         <h5 class="text-uppercase">Total price</h5>
         <h5>€ <?php echo number_format($total_price, 2); ?></h5>
     </div>
-    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-block btn-lg"
-            data-mdb-ripple-color="dark">Buy
+    <button type="submit" name="submit" class="btn btn-dark btn-block btn-lg"
+            data-mdb-ripple-init data-mdb-ripple-color="dark">Buy
     </button>
+
+                                </form>
 </section>
 <?php include("footer.php"); ?>
