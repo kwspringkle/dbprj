@@ -3,7 +3,7 @@ include("header.php");
 include("connectdb.php");
 // include("update_quantity.php")
 
-int $total_price=0;
+int $total_price =0;
 ?>
 
 
