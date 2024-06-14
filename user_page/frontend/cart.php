@@ -34,8 +34,11 @@ include("connectdb.php") ?>
                                                 <h6 class="mb-0"><?php echo $row['price']; ?></h6>
                                             </div>
                                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                                            </div>
+                                            <a href="delete_product.php?id=<?php echo $row['id']; ?>">
+                                            <img src="images/trash-can.jpg" style="width: 50px; height: 30px;">
+                                        </a>
+                                          </div>
+
                                         </div>
                                         <?php
                                         // Tính tổng số tiền bằng cách nhân số lượng với giá tiền và cộng vào biến tổng

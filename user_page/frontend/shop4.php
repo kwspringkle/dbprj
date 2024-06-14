@@ -2,6 +2,7 @@
 include("header.php");
 include("connectdb.php");
 
+
 $display_message = []; // Initialize display message array
 
 if(isset($_POST['add_to_cart'])){
@@ -28,8 +29,25 @@ if(isset($_POST['add_to_cart'])){
 }
 ?>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
-?>
+<style>
+
+
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-size: 1.5em; /* Tăng kích thước font cho tiêu đề */
+  margin-bottom: 10px; /* Thêm khoảng cách dưới tiêu đề */
+}
+
+</style>
+
 <div class="coffee_section layout_padding">
 
          <div class="container">
@@ -55,7 +73,7 @@ if(isset($_POST['add_to_cart'])){
                      <div class="container-fluid">
                      <div class="row">
     <?php
-    $select_product = "SELECT id, name, price, image FROM products";
+    $select_product = "SELECT products_id, name, price, image FROM products";
     $fetch_product_result = mysqli_query($conn, $select_product);
     
     if(mysqli_num_rows($fetch_product_result) > 0) {
@@ -63,7 +81,7 @@ if(isset($_POST['add_to_cart'])){
     ?>
     <div class="col-lg-3 col-md-6">
         <div class="coffee_img"><img src="<?php echo $fetch_product['image']; ?>" ></div>
-        <h3 class="types_text"><?php echo $fetch_product['name']; ?></h3>
+        <h3 class="open-sans"><?php echo $fetch_product['name']; ?></h3>
         <p class="looking_text"><?php echo $fetch_product['price']; ?></p>
         <div class="read_bt"><a href="cart.php">Go to Shopping</a></div>
         <form method="post" action="">

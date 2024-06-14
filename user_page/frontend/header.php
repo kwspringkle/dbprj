@@ -61,28 +61,23 @@
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto">
                      <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="about.php">About</a>
                      </li>
-                     <!-- products dropdown -->
-                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Products
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                           <a class="dropdown-item" href="shop2.html">Shop 2</a>
-                           <a class="dropdown-item" href="shop3.html">Shop 3</a>
-                           <a class="dropdown-item" href="shop4.html">Shop 4</a>
+                     <li class="nav-item">
+                        <a class="nav-link" href="shop4.php">Products</a>
+                     </li>
+                    
                      </div>
                      </li>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="cart.html">Cart</a>
+                        <a class="nav-link" href="cart.php">Cart</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
+                        <a class="nav-link" href="blog.php">Blog</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
@@ -91,7 +86,7 @@
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_bt">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a id="Login" href="login.html"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
+                            <li class="nav-item"><a id="Login" href="login.php"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
                             <li class="nav-item"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
