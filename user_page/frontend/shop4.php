@@ -1,33 +1,35 @@
 <?php 
-
 include("header.php");
-include 'connect.php' ;
+include("connectdb.php");
 
-if(isset ($_POST['add_to_cart'])){
-   $product_name=$_POST['product_name'];
-   $product_price=$_POST['product_price'];
-   $product_image=$_POST['product_image'];
-   $product_quantity=1;
+$display_message = []; // Initialize display message array
 
-   // select cart data
-   $select_cart-mysqli_query($conn,"select * from 'cart' where name='$product_name'");
-   if(mysqli_num_rows($select_cart)>0){
-      $display_message[]= "product alrealdy added to cart";
-   }
-   else {
+if(isset($_POST['add_to_cart'])){
+    $product_name = $_POST['product_name'];
+    $product_price = $_POST['product_price'];
+    $product_image = $_POST['product_image'];
+    $product_quantity = 1;
 
-   
-   insert_products=mysqli_query($conn,"insert into 'cart' (name, price, image, quantity) values
-   ('$product_name','$product_price','$product_image','$product_quantity')");
-
-   $display_message[]= "product added to cart";
+    // Select cart data
+    $select_cart = mysqli_query($conn, "SELECT name, price, quantity, image FROM `cart` WHERE name='$product_name'");
+    if(mysqli_num_rows($select_cart) > 0){
+        $row = mysqli_fetch_assoc($select_cart);
+        $new_quantity = $row['quantity'] + 1;
+        $update_quantity = mysqli_query($conn, "UPDATE `cart` SET quantity=$new_quantity WHERE name='$product_name'");
+        // $display_message[] = "Product already added to cart";
+    } else {
+        $insert_products = mysqli_query($conn, "INSERT INTO `cart` (name, price, image, quantity) VALUES ('$product_name','$product_price','$product_image','$product_quantity')");
+        if($insert_products){
+            $display_message[] = "Product added to cart";
+        } else {
+            $display_message[] = "Error adding product to cart";
+        }
+    }
 }
-
-
+?>
 
 
 ?>
-
 <div class="coffee_section layout_padding">
 
          <div class="container">
@@ -51,45 +53,48 @@ if(isset ($_POST['add_to_cart'])){
                   <div class="carousel-item active">
               
                      <div class="container-fluid">
-                        <div class="row">
-                              <?php
-                              $select_product=mysqli_query($conn,"select id, name,price, image from 'products'");
-                              if(mysqli_num_rows($select_product)>0){
-                                 while ($fetch_product=mysqli_fetch_assoc($select_product)){
+                     <div class="row">
+    <?php
+    $select_product = "SELECT id, name, price, image FROM products";
+    $fetch_product_result = mysqli_query($conn, $select_product);
+    
+    if(mysqli_num_rows($fetch_product_result) > 0) {
+        while($fetch_product = mysqli_fetch_assoc($fetch_product_result)) {
+    ?>
+    <div class="col-lg-3 col-md-6">
+        <div class="coffee_img"><img src="<?php echo $fetch_product['image']; ?>" ></div>
+        <h3 class="types_text"><?php echo $fetch_product['name']; ?></h3>
+        <p class="looking_text"><?php echo $fetch_product['price']; ?></p>
+        <div class="read_bt"><a href="cart.php">Go to Shopping</a></div>
+        <form method="post" action="">
+            <!-- Pass product details as hidden inputs -->
+            <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
+            <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
+            <input type="hidden" name="product_image" value="<?php echo $fetch_product['image']; ?>">
+            <!-- Submit button to add product to cart -->
+            <input type="submit" class="read_bt" value="Add to Cart" name="add_to_cart">
+            
+        </form>
+    </div>
+    <?php
+        }
+    } else {
+        echo "No products available";
+    }
+    ?>
+</div>
 
-                                 }
-                              }
-                     ?>
-              <form method="post" action="">
-
-                           <div class="col-lg-3 col-md-6">
-                           <div class="coffee_img"><img src="<?php echo $fetch_product['image']; ?>" ></div>
-                            <h3 class="types_text"><?php echo $fetch_product['name']; ?></h3>
-                            <p class="looking_text"><?php echo $fetch_product['price']; ?></p>
-                            <input type="hidden" name ="product_name" value="<?php echo $fetch_product['name']; ?>">
-                            <input type="hidden" name ="product_price" value="<?php echo $fetch_product['price']; ?>">
-                            <input type="hidden"  name ="product_image" value="<?php echo $fetch_product['image']; ?>">
-                            <input type="submit" class="read_bt" value="Add to Cart" name="add_to_cart">
-                  
-                    </div>
-                            </div>
 <?php
-                    }
+                    
                           
                          ?>
 
                            </div>
 
                     
-                  </div>
-                  <div>
-
                   
-               
-                              
-                          
-                           
-                        </div>
+   
+                        
                      </div>
                      
                 </div>
