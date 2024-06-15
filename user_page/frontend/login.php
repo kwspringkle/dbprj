@@ -80,7 +80,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Login Now</button> <!-- Changed anchor tag to button -->
                     <hr />
-                    Not registered? <a href="register.html">Click here</a> or go to <a href="index.html">Home</a>
+                    Not registered? <a href="blog.php">Click here</a> or go to <a href="index.html">Home</a>
                 </form>
             </div>
         </div>
