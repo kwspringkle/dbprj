@@ -64,7 +64,14 @@
                         <a class="nav-link" href="index.php">Home</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="about.php">About</a>
+                        <a class="nav-link" href="index.php">Home</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="shop4.php">Products</a>
+                     </li>
+                    
+                     </div>
                      </li>
                      <!-- products dropdown -->
                      <li class="nav-item">
@@ -72,8 +79,10 @@
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="cart.php">Cart</a>
+                        <a class="nav-link" href="cart.php">Cart</a>
                      </li>
                      <li class="nav-item">
+                        <a class="nav-link" href="blog.php">Blog</a>
                         <a class="nav-link" href="blog.php">Blog</a>
                      </li>
                      <li class="nav-item">
@@ -83,7 +92,7 @@
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_bt">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a id="Login" href="login.html"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
+                            <li class="nav-item"><a id="Login" href="login.php"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
                             <li class="nav-item"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
