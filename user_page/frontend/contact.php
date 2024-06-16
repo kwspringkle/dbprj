@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['Your_Name'];
     $email = $_POST['Your_Email'];
     $phone = $_POST['Your_Phone'];
-    $message = $_POST['Massage'];
+    $message = $_POST['Message'];
 
     // Kiểm tra xem email và phone có tồn tại trong bảng user không
     $sql_check_user = "SELECT users_id FROM users WHERE username = '$email' AND phone = '$phone' AND fullname='$name'";
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <input type="text" class="mail_text" placeholder="Your Name" name="Your_Name">
                             <input type="text" class="mail_text" placeholder="Your Email" name="Your_Email">
                             <input type="text" class="mail_text" placeholder="Your Phone" name="Your_Phone">
-                            <textarea class="massage-bt" placeholder="Message" rows="5" name="Massage"></textarea>
+                            <textarea class="massage-bt" placeholder="Message" rows="5" name="Message"></textarea>
                             <div class="send_bt"><input type="submit" value="SEND"></div>
                         </form>
                     </div>

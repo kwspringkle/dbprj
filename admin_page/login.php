@@ -1,37 +1,41 @@
 <?php
-$loginError = ""; // Biến để lưu thông báo lỗi đăng nhập
+// Include your database connection file here
+include("db/conn.php");
 
-if (isset($_POST["btSubmit"])) {
-    // Lấy dữ liệu từ form
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve username and password from the form
     $username = $_POST["username"];
     $password = $_POST["password"];
-    
-    // Kết nối csdl
-    require_once("db/conn.php");
-    
-    // Lệnh truy vấn sử dụng Prepared Statements để tránh SQL Injection
-    $sql_str = "SELECT * FROM admins WHERE username = ? AND password = ?";
-    $stmt = mysqli_prepare($conn, $sql_str);
-    
-    // Bắt đầu bind parameters và execute
-    mysqli_stmt_bind_param($stmt, "ss", $username, $password);
-    mysqli_stmt_execute($stmt);
-    
-    // Lấy kết quả
-    $result = mysqli_stmt_get_result($stmt);
-    
-    // Kiểm tra số lượng record trả về: >0: đăng nhập thành công
-    if (mysqli_num_rows($result) > 0) {
-        echo "<h1>Đăng nhập thành công</h1>";
-        // Thực hiện các hành động sau khi đăng nhập thành công
+
+    // Hash the password for security (if needed, depending on your database storage)
+    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    // Query to check if the username exists and get the user_id
+    $sql_check_username = "SELECT admins_id, password FROM admins WHERE username = '$username'";
+    $result_check_username = mysqli_query($conn, $sql_check_username);
+
+    if (mysqli_num_rows($result_check_username) > 0) {
+        $row = mysqli_fetch_assoc($result_check_username);
+        $user_id = $row['admins_id'];
+        $stored_password = $row['password'];
+
+        // Verify the password
+        // Assuming passwords are hashed in the database, you would use password_verify
+        // if (password_verify($password, $stored_password)) {
+        if ($password === $stored_password) { // For demonstration purpose only; use password_verify in real scenarios
+            // Redirect to products.php if username is user_id and password matches
+            header("Location: index.php");
+            exit();
+        } else {
+            echo "Password is incorrect.";
+        }
     } else {
-        echo " <h1>Đăng nhập không thành công. Vui lòng kiểm tra lại tên đăng nhập và mật khẩu.</h1>)";
+        echo "Username does not exist.";
     }
-    
-    // Đóng statement
-    mysqli_stmt_close($stmt);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
