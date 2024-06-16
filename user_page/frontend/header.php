@@ -93,7 +93,15 @@
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_bt">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a id="Login" href="login.php"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
+                        <?php
+                        session_start();
+                        if (isset($_SESSION['fullname'])) {
+                            $fullname = $_SESSION['fullname'];
+                            echo '<li class="nav-item"><a id="Login" href="index.php"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>' . $fullname . '</a></li>';
+                        } else {
+                            echo '<li class="nav-item"><a id="Login" href="login.php"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>';
+                        }
+                        ?> 
                             
                         </ul>
                     </div>
