@@ -1,9 +1,8 @@
 <?php include("includes/header.php"); ?>
 <style>
     .table-responsive {
-    overflow-x: auto;
-}
-
+        overflow-x: auto;
+    }
 </style>
 <div>
     <h3>Danh sách đơn hàng</h3>   
@@ -22,28 +21,31 @@
                             <th>Thời gian</th>
                             <th>Hình thức thanh toán</th>
                             <th>Mã địa chỉ</th>
-                            <th>Mã sản phẩm</th>
-                            <th>Số lượng sản phẩm</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
                         require("db/conn.php");
-                        $sql_str = "SELECT o.id AS order_id, o.users_id, o.status, o.created_at, o.payment_method, o.address_id, od.products_id, od.quantity 
-                                    FROM orders o 
-                                    JOIN orders_detail od ON od.orders_id = o.id;";
+                        $sql_str = "SELECT * from orders";
                         $result = mysqli_query($conn, $sql_str);
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                         <tr>
-                            <td><?= htmlspecialchars($row['order_id']) ?></td>
-                            <td><?= htmlspecialchars($row['users_id']) ?></td>
+                        <td>
+                                <a href='orders_info.php?orders_id=<?= htmlspecialchars($row['orders_id']) ?>'>
+                                    <?= htmlspecialchars($row['orders_id']) ?>
+                                </a>
+                        </td>
+                            <td>
+                                <a href='users_info.php?users_id=<?= htmlspecialchars($row['users_id']) ?>'>
+                                    <?= htmlspecialchars($row['users_id']) ?>
+                                </a>
+                            </td>
                             <td><?= htmlspecialchars($row['status']) ?></td>
                             <td><?= htmlspecialchars($row['created_at']) ?></td>
                             <td><?= htmlspecialchars($row['payment_method']) ?></td>
-                            <td><?= htmlspecialchars($row['address_id']) ?></td>
-                            <td><?= htmlspecialchars($row['products_id']) ?></td>
-                            <td><?= htmlspecialchars($row['quantity']) ?></td>
+                            <td><?= htmlspecialchars($row['address']) ?></td>
+                            
                         </tr>
                     <?php
                         }

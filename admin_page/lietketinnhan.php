@@ -35,7 +35,11 @@
                     ?>
                     <tr>
                         <td><?= htmlspecialchars($row['msg_id']) ?></td>
-                        <td><?= htmlspecialchars($row['user_id']) ?></td>
+                        <td>
+                                <a href='users_info.php?users_id=<?= htmlspecialchars($row['user_id']) ?>'>
+                                    <?= htmlspecialchars($row['user_id']) ?>
+                                </a>
+                            </td>
                         <td><?= htmlspecialchars($row['fullname']) ?></td>
                         <td><?= htmlspecialchars($row['content']) ?></td>
                         <td><?= htmlspecialchars($row['created_at']) ?></td>

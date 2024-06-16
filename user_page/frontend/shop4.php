@@ -65,7 +65,7 @@ if(isset($_POST['add_to_cart'])){
         <div class="coffee_img"><img src="<?php echo $fetch_product['image']; ?>" ></div>
         <h3 class="types_text"><?php echo $fetch_product['name']; ?></h3>
         <p class="looking_text"><?php echo $fetch_product['price']; ?></p>
-        <div class="read_bt"><a href="cart.php">Go to Shopping</a></div>
+        <div class="read_bt"><a href="cart.php">Go to Shopping</a>
         <form method="post" action="">
             <!-- Pass product details as hidden inputs -->
             <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
@@ -75,6 +75,7 @@ if(isset($_POST['add_to_cart'])){
             <input type="submit" class="read_bt" value="Add to Cart" name="add_to_cart">
             
         </form>
+        </div>
     </div>
     <?php
         }

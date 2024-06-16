@@ -19,33 +19,22 @@
                         <tr>
                             <th>ID người dùng</th>
                             <th>Tên đăng nhập</th>
-                            <th>Password</th>
                             <th>Họ tên</th>
                             <th>Số điện thoại</th>
-                            <th>Hình ảnh</th>
-                            <th>Địa chỉ</th>
-                            <th>Tỉnh/Thành phố</th>
-                            <th>Quốc gia</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
                         require("db/conn.php");
-                        $sql_str = "select * from users join address a on a.users_id = users.id
-                        where role = 'user';";
+                        $sql_str = "SELECT users_id, username, fullname, phone FROM users;";
                         $result = mysqli_query($conn, $sql_str);
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                         <tr>
                             <td><?= htmlspecialchars($row['users_id']) ?></td>
                             <td><?= htmlspecialchars($row['username']) ?></td>
-                            <td><?= htmlspecialchars($row['password']) ?></td>
                             <td><?= htmlspecialchars($row['fullname']) ?></td>
                             <td><?= htmlspecialchars($row['phone']) ?></td>
-                            <td><?= htmlspecialchars($row['image']) ?></td>
-                            <td><?= htmlspecialchars($row['address_line']) ?></td>
-                            <td><?= htmlspecialchars($row['city_state']) ?></td>
-                            <td><?= htmlspecialchars($row['country']) ?></td>
                         </tr>
                     <?php
                         }

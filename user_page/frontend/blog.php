@@ -40,7 +40,6 @@
 
 .blog_box {
   padding: 15px; /* Thêm padding vào blog box */
-  border: 1px solid #e0e0e0; /* Thêm viền nhẹ */
   border-radius: 5px; /* Thêm bo góc */
 }
 
