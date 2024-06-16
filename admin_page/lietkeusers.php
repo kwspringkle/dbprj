@@ -7,10 +7,10 @@
 
 </style>
 <div>
-    <h3>Danh sách admin</h3>   
+    <h3>Danh sách người dùng</h3>   
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Danh sách admin</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Danh sách người dùng</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">

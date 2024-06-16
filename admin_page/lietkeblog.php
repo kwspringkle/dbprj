@@ -20,9 +20,9 @@
                             <th>Mã blog</th>
                             <th>Tiêu đề</th>
                             <th>Nội dung</th>
-                            <!--th>Hình ảnh</th-->
                             <th>Thời gian tạo</th>
                             <th>Thời gian chỉnh sửa</th>
+                            <th>Hình ảnh</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,9 +37,9 @@
                             <td><?= htmlspecialchars($row['blog_id']) ?></td>
                             <td><?= htmlspecialchars($row['title']) ?></td>
                             <td><?= htmlspecialchars($row['content']) ?></td>
-                            <!--td><!--?= htmlspecialchars($row['image']) ?></td-->
                             <td><?= htmlspecialchars($row['created_at']) ?></td>
                             <td><?= htmlspecialchars($row['updated_at']) ?></td>
+                            <td><img src="<?= $row['image'] ?>" width="100" height="100"></td>
                         </tr>
                     <?php
                         }

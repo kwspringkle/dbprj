@@ -19,7 +19,7 @@
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Thêm blog</h1>
                     </div>
-                    <form class="user" method="post" action="add_blog.php">
+                    <form class="user" method="post" action="add_blog.php" enctype="multipart/form-data">
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="title" name="title" placeholder="Tiêu đề" required>
@@ -29,6 +29,12 @@
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="content" name="content" placeholder="Nội dung" required>
+                             </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <input type="file" class="form-control" id="image" name="image" required>
                              </div>
                         </div>
     
