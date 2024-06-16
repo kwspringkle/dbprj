@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    // Initialize $user array
+    /*if (isset($_SESSION['user']) && isset($_SESSION['user']['username'])) {
+        echo "Username: {$_SESSION['user']['username']}";
+    } else {
+        echo "User session or username not set!";
+    }*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -21,7 +21,6 @@
                             <th>Tiêu đề</th>
                             <th>Nội dung</th>
                             <th>Thời gian tạo</th>
-                            <th>Thời gian chỉnh sửa</th>
                             <th>Hình ảnh</th>
                         </tr>
                     </thead>
@@ -38,7 +37,6 @@
                             <td><?= htmlspecialchars($row['title']) ?></td>
                             <td><?= htmlspecialchars($row['content']) ?></td>
                             <td><?= htmlspecialchars($row['created_at']) ?></td>
-                            <td><?= htmlspecialchars($row['updated_at']) ?></td>
                             <td><img src="<?= $row['image'] ?>" width="100" height="100"></td>
                         </tr>
                     <?php

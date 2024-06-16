@@ -1,6 +1,9 @@
 <?php
+
+session_start();
 // Include your database connection file here
 include("db/conn.php");
+$error_msg ='';
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -12,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Query to check if the username exists and get the user_id
-    $sql_check_username = "SELECT admins_id, password FROM admins WHERE username = '$username'";
+    $sql_check_username = "SELECT * FROM admins WHERE username = '$username'";
     $result_check_username = mysqli_query($conn, $sql_check_username);
 
     if (mysqli_num_rows($result_check_username) > 0) {
@@ -25,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // if (password_verify($password, $stored_password)) {
         if ($password === $stored_password) { // For demonstration purpose only; use password_verify in real scenarios
             // Redirect to products.php if username is user_id and password matches
+            $_SESSION['user'] = $row;
             header("Location: index.php");
             exit();
         } else {

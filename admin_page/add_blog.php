@@ -1,15 +1,12 @@
 <?php
-
-//Chưa xác định được admin_id
-
-
-
+session_start();
 include("db/conn.php"); // Kết nối đến cơ sở dữ liệu
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Kiểm tra xem có tệp đã được gửi lên không
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         // Sanitize and validate form inputs
+        $id = $_SESSION['user']['admins_id'];
         $title = htmlspecialchars($_POST['title']);
         $content = htmlspecialchars($_POST['content']);
         $created_at = date('Y-m-d H:i:s'); // Lấy thời gian hiện tại
@@ -19,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $file_tmp = $_FILES['image']['tmp_name'];
         $file_type = $_FILES['image']['type'];
 
-        $upload_directory = 'uploads/';
+        $upload_directory = '../admin_page/uploads/';
         $upload_path = $upload_directory . $file_name;
 
         // Tạo thư mục uploads nếu nó chưa tồn tại
@@ -34,8 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "Điền đầy đủ thông tin.";
             } else {
                 // Chuẩn bị câu lệnh SQL
-                $stmt = $conn->prepare("INSERT INTO blog_posts (title, content, created_at, image) VALUES (?, ?, ?, ?)");
-                $stmt->bind_param("ssss", $title, $content, $created_at, $upload_path);
+                $stmt = $conn->prepare("INSERT INTO blog_posts (admins_id, title, content, created_at, image) VALUES (?, ?, ?, ?, ?)");
+                $stmt->bind_param("sssss", $id, $title, $content, $created_at, $upload_path);
 
                 // Thực thi câu lệnh SQL
                 if ($stmt->execute()) {
