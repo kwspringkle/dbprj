@@ -28,6 +28,9 @@
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <style>
+          body {
+            font-family: 'Poppins', sans-serif !important;
+         }
          #Login {
              color: black;
              background-color: white; 
@@ -65,7 +68,7 @@
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="about.php">About</a>
-                        <a class="nav-link" href="index.php">Home</a>
+                        
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="shop4.php">Products</a>
@@ -74,26 +77,24 @@
                      </div>
                      </li>
                      <!-- products dropdown -->
-                     <li class="nav-item">
-                        <a class="nav-link" href="shop4.php">About</a>
-                     </li>
+                    
                      <li class="nav-item">
                         <a class="nav-link" href="cart.php">Cart</a>
-                        <a class="nav-link" href="cart.php">Cart</a>
+                        
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="blog.php">Blog</a>
-                        <a class="nav-link" href="blog.php">Blog</a>
+                       
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact.php">Contact</a>
                      </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_bt">
                         <ul class="navbar-nav">
                             <li class="nav-item"><a id="Login" href="login.php"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>
-                            <li class="nav-item"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                            
                         </ul>
                     </div>
                   </form>
