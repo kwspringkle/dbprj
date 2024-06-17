@@ -13,13 +13,13 @@
 git clone https://github.com/kwspringkle/dbprj
 ```
 
-###Push code:
+### Push code:
 ```sh
 git add .
 git commit -m "message"
 git push
 ```
-Đồng bộ về máy:
+### Đồng bộ về máy:
 ```sh
 git pull
 ```
