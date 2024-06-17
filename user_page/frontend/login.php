@@ -82,7 +82,7 @@ $conn->close();
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Login Now</button>
                     <hr />
-                    Not registered? <a href="register.php">Click here</a> or go to <a href="indexx.html">Home</a>
+                    Not registered? <a href="register.php">Click here</a> or go to <a href="index.html">Home</a>
                 </form>
             </div>
         </div>
