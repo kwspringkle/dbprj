@@ -47,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Clear the cart after placing order (optional step)
         // Example: You might have a delete_product.php script to handle this
-
+        $clear_cart_query = "DELETE FROM cart";
+        mysqli_query($conn, $clear_cart_query);
         // Output a success message
         echo "Order placed successfully.";
 

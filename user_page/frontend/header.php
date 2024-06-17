@@ -64,14 +64,14 @@
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto">
                      <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link" href="index.php">HOME</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="about.php">About</a>
+                        <a class="nav-link" href="about.php">ABOUT</a>
                         
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="shop4.php">Products</a>
+                        <a class="nav-link" href="shop4.php">PRODUCTS</a>
                      </li>
                     
                      </div>
@@ -79,29 +79,33 @@
                      <!-- products dropdown -->
                     
                      <li class="nav-item">
-                        <a class="nav-link" href="cart.php">Cart</a>
+                        <a class="nav-link" href="cart.php">CART</a>
                         
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="blog.php">Blog</a>
+                        <a class="nav-link" href="blog.php">BLOG</a>
                        
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact</a>
+                        <a class="nav-link" href="contact.php">CONTACT</a>
                      </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_bt">
                         <ul class="navbar-nav">
                         <?php
-                        session_start();
-                        if (isset($_SESSION['fullname'])) {
-                            $fullname = $_SESSION['fullname'];
-                            echo '<li class="nav-item"><a id="Login" href="index.php"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>' . $fullname . '</a></li>';
-                        } else {
-                            echo '<li class="nav-item"><a id="Login" href="login.php"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a></li>';
-                        }
-                        ?> 
+                                session_start();
+                                if (isset($_SESSION['fullname'])) {
+                                    $fullname = $_SESSION['fullname'];
+                                    echo '<li class="nav-item">
+                                            <a id="Login" href="logout.php"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>' . $fullname . ' (Logout)</a>
+                                          </li>';
+                                } else {
+                                    echo '<li class="nav-item">
+                                            <a id="Login" href="login.php"><span class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></span>Login</a>
+                                          </li>';
+                                }
+                                ?>
                             
                         </ul>
                     </div>
