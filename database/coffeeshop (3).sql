@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2024 at 11:59 AM
+-- Generation Time: Jun 17, 2024 at 04:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,21 +31,24 @@ CREATE TABLE `admins` (
   `admins_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `fullname` varchar(255) NOT NULL
+  `fullname` varchar(255) NOT NULL,
+  `role` enum('admin','superadmin') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`admins_id`, `username`, `password`, `fullname`) VALUES
-(1, 'admin1@dozecafe.com', 'admin12345', 'admin1'),
-(2, 'admin@dozecafe.com', '123456', 'admin'),
-(3, 'mai@dozecafe.com', 'maixau1234', 'Trương Ngọc Mai'),
-(4, 'nhi@dozecafe.com', 'nho', 'Bùi Ý Nhi'),
-(5, 'chien@dozecafe.com', 'chuoibien', 'Hà Trung Chiến'),
-(6, 'quynh@dozecafe.com', 'meomeo', 'Trần Khánh Quỳnh'),
-(9, 'admin3@dozecafe.com', 'admin3', 'admin3');
+INSERT INTO `admins` (`admins_id`, `username`, `password`, `fullname`, `role`) VALUES
+(1, 'admin1@dozecafe.com', 'admin12345', 'admin1', 'admin'),
+(2, 'admin@dozecafe.com', '123456', 'admin', 'admin'),
+(3, 'mai@dozecafe.com', 'maixau1234', 'Trương Ngọc Mai', 'admin'),
+(4, 'nhi@dozecafe.com', 'nho', 'Bùi Ý Nhi', 'admin'),
+(5, 'chien@dozecafe.com', 'chuoibien', 'Hà Trung Chiến', 'admin'),
+(6, 'quynh@dozecafe.com', 'meomeo', 'Trần Khánh Quỳnh', 'admin'),
+(9, 'admin3@dozecafe.com', 'admin3', 'admin3', 'admin'),
+(10, 'superadmin', '123456', 'Superadmin', 'superadmin'),
+(13, 'admin6@dozecafe.com', '123456', 'admin6', 'admin');
 
 -- --------------------------------------------------------
 
@@ -76,7 +79,8 @@ INSERT INTO `blog_posts` (`blog_id`, `admins_id`, `title`, `content`, `image`, `
 (7, 6, 'Gặp gỡ barista tài năng của quán', 'Chúng tôi tự hào giới thiệu những barista tài năng, người tạo nên những ly cà phê tuyệt vời.', 'https://th.bing.com/th/id/OIP.F1fqm8ke0rGjz81wG_DdhQAAAA?rs=1&pid=ImgDetMain', '2024-06-11 22:28:23'),
 (8, 6, 'Cách lựa chọn hạt cà phê chất lượng', 'Tìm hiểu cách chúng tôi lựa chọn những hạt cà phê chất lượng cao.', 'https://th.bing.com/th/id/OIP.u5deXVzRa1_rBPGfjmz-1gHaE8?rs=1&pid=ImgDetMain', '2024-06-15 22:28:32'),
 (9, 4, 'Đồ uống phù hợp với tâm trạng của bạn', 'Khám phá các món đồ uống phù hợp với từng tâm trạng của bạn.', 'https://phela.vn/wp-content/uploads/2021/07/14853.jpg', '2024-06-04 22:28:40'),
-(15, 2, 'BST Ô Long Matcha – Một phiên bản sáng tạo từ Ô Long nguyên bản', 'BST Ô Long Matcha – Một phiên bản sáng tạo từ Ô Long nguyên bản Với cảm hứng bất tận từ nguồn nông sản Việt Nam, Phê La tự hào mang đến Bộ sưu tập Ô Long Matcha, gồm hai sản phẩm Săn Mây (Matcha đá xay) và Matcha Coco Latte. Hoà quyện giữa tầng hương của trà đặc sản cùng vị dừa ngọt thơm từ “Thủ phủ dừa của Việt Nam”, Săn Mây và Matcha Coco Latte là trải nghiệm đầy hứng khởi chinh phục những vị khách có gu thưởng thức tinh tế! Sự kết hợp với Sữa Dừa Bến Tre không chỉ gợi nhắc hương vị thân quen mà còn tạo nên một điểm nhấn độc đáo, mang đậm bản sắc văn hóa đặc trưng của người Việt.', '../uploads/banner-1-1.jpg', '2024-06-17 08:57:21');
+(15, 2, 'BST Ô Long Matcha – Một phiên bản sáng tạo từ Ô Long nguyên bản', 'BST Ô Long Matcha – Một phiên bản sáng tạo từ Ô Long nguyên bản Với cảm hứng bất tận từ nguồn nông sản Việt Nam, Phê La tự hào mang đến Bộ sưu tập Ô Long Matcha, gồm hai sản phẩm Săn Mây (Matcha đá xay) và Matcha Coco Latte. Hoà quyện giữa tầng hương của trà đặc sản cùng vị dừa ngọt thơm từ “Thủ phủ dừa của Việt Nam”, Săn Mây và Matcha Coco Latte là trải nghiệm đầy hứng khởi chinh phục những vị khách có gu thưởng thức tinh tế! Sự kết hợp với Sữa Dừa Bến Tre không chỉ gợi nhắc hương vị thân quen mà còn tạo nên một điểm nhấn độc đáo, mang đậm bản sắc văn hóa đặc trưng của người Việt.', '../uploads/banner-1-1.jpg', '2024-06-17 08:57:21'),
+(18, 2, 'Đồ uống phù hợp với tâm trạng của bạn', 'Khám phá các món đồ uống phù hợp với từng tâm trạng của bạn. edit', '../uploads/14410.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -169,32 +173,33 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orders_id`, `users_id`, `admins_id`, `status`, `payment_method`, `created_at`, `address`) VALUES
-(1, 14, 6, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 1 Đại Cồ Việt, Hà Nội, Việt Nam'),
-(2, 23, NULL, 'processing', 'COD', '2024-06-12 17:56:49', 'Cổng Trần Đại Nghĩa, ĐHBK Hà Nội, Hà Nội, Việt Nam'),
-(3, 5, 3, 'delivered', 'QR', '2024-06-12 17:56:49', 'Số 12 Phố Huế, Hà Nội, Việt Nam'),
-(4, 8, 1, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 34 Nguyễn Trãi, Hà Nội, Việt Nam'),
-(5, 20, 2, 'delivered', 'QR', '2024-06-12 17:56:49', 'Số 21 Lê Duẩn, Hà Nội, Việt Nam'),
-(6, 12, NULL, 'processing', 'COD', '2024-06-12 17:56:49', 'Số 45 Đống Đa, Hà Nội, Việt Nam'),
-(7, 25, 5, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 2 Hai Bà Trưng, Hà Nội, Việt Nam'),
-(8, 3, NULL, 'processing', 'COD', '2024-06-12 17:56:49', 'Số 8 Lý Thường Kiệt, Hà Nội, Việt Nam'),
-(9, 19, 4, 'delivered', 'QR', '2024-06-12 17:56:49', 'Số 22 Tôn Đức Thắng, Hà Nội, Việt Nam'),
-(10, 7, 6, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 18 Trần Hưng Đạo, Hà Nội, Việt Nam'),
+(1, 14, 10, 'delivered', 'QR', '2024-06-12 17:56:49', 'Số 1 Đại Cồ Việt, Hà Nội, Việt Nam'),
+(2, 23, 4, 'finished', 'COD', '2024-06-12 17:56:49', 'Cổng Trần Đại Nghĩa, ĐHBK Hà Nội, Hà Nội, Việt Nam'),
+(3, 5, 4, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 12 Phố Huế, Hà Nội, Việt Nam'),
+(4, 8, 4, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 34 Nguyễn Trãi, Hà Nội, Việt Nam'),
+(5, 20, 6, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 21 Lê Duẩn, Hà Nội, Việt Nam'),
+(6, 12, 6, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 45 Đống Đa, Hà Nội, Việt Nam'),
+(7, 25, 2, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 2 Hai Bà Trưng, Hà Nội, Việt Nam'),
+(8, 3, 6, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 8 Lý Thường Kiệt, Hà Nội, Việt Nam'),
+(9, 19, 6, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 22 Tôn Đức Thắng, Hà Nội, Việt Nam'),
+(10, 7, 2, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 18 Trần Hưng Đạo, Hà Nội, Việt Nam'),
 (11, 1, 2, 'delivered', 'QR', '2024-06-12 17:56:49', 'Số 33 Láng Hạ, Hà Nội, Việt Nam'),
-(12, 16, NULL, 'processing', 'COD', '2024-06-12 17:56:49', 'Số 15 Cầu Giấy, Hà Nội, Việt Nam'),
-(13, 10, 1, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 11 Tây Hồ, Hà Nội, Việt Nam'),
-(14, 24, 3, 'delivered', 'QR', '2024-06-12 17:56:49', 'Số 28 Hoàng Quốc Việt, Hà Nội, Việt Nam'),
-(15, 6, 5, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 37 Kim Mã, Hà Nội, Việt Nam'),
-(16, 15, NULL, 'processing', 'QR', '2024-06-12 17:56:49', 'Số 9 Phạm Hùng, Hà Nội, Việt Nam'),
-(17, 21, 4, 'delivered', 'COD', '2024-06-12 17:56:49', 'Số 5 Đinh Tiên Hoàng, Hà Nội, Việt Nam'),
-(18, 4, 6, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 26 Trường Chinh, Hà Nội, Việt Nam'),
-(19, 11, NULL, 'processing', 'COD', '2024-06-12 17:56:49', 'Số 31 Bà Triệu, Hà Nội, Việt Nam'),
+(12, 16, 2, 'processing', 'COD', '2024-06-12 17:56:49', 'Số 15 Cầu Giấy, Hà Nội, Việt Nam'),
+(13, 10, 2, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 11 Tây Hồ, Hà Nội, Việt Nam'),
+(14, 24, 2, 'delivered', 'QR', '2024-06-12 17:56:49', 'Số 28 Hoàng Quốc Việt, Hà Nội, Việt Nam'),
+(15, 6, 2, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 37 Kim Mã, Hà Nội, Việt Nam'),
+(16, 15, 2, 'processing', 'QR', '2024-06-12 17:56:49', 'Số 9 Phạm Hùng, Hà Nội, Việt Nam'),
+(17, 21, 2, 'delivered', 'COD', '2024-06-12 17:56:49', 'Số 5 Đinh Tiên Hoàng, Hà Nội, Việt Nam'),
+(18, 4, 2, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 26 Trường Chinh, Hà Nội, Việt Nam'),
+(19, 11, 2, 'processing', 'COD', '2024-06-12 17:56:49', 'Số 31 Bà Triệu, Hà Nội, Việt Nam'),
 (20, 18, 2, 'delivered', 'QR', '2024-06-12 17:56:49', 'Số 7 Trần Quang Khải, Hà Nội, Việt Nam'),
-(21, 9, 1, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 14 Lê Lợi, Hà Nội, Việt Nam'),
-(22, 17, NULL, 'processing', 'QR', '2024-06-12 17:56:49', 'Số 29 Nguyễn Chí Thanh, Hà Nội, Việt Nam'),
-(23, 13, 3, 'delivered', 'COD', '2024-06-12 17:56:49', 'Số 6 Thanh Xuân, Hà Nội, Việt Nam'),
-(24, 2, 5, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 19 Ba Đình, Hà Nội, Việt Nam'),
-(25, 22, NULL, 'processing', 'COD', '2024-06-12 17:56:49', 'Số 13 Đông Anh, Hà Nội, Việt Nam'),
-(26, 30, NULL, NULL, 'QR', NULL, 'ĐHBKHN');
+(21, 9, 2, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 14 Lê Lợi, Hà Nội, Việt Nam'),
+(22, 17, 2, 'processing', 'QR', '2024-06-12 17:56:49', 'Số 29 Nguyễn Chí Thanh, Hà Nội, Việt Nam'),
+(23, 13, 2, 'delivered', 'COD', '2024-06-12 17:56:49', 'Số 6 Thanh Xuân, Hà Nội, Việt Nam'),
+(24, 2, 2, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 19 Ba Đình, Hà Nội, Việt Nam'),
+(25, 22, 2, 'processing', 'COD', '2024-06-12 17:56:49', 'Số 13 Đông Anh, Hà Nội, Việt Nam'),
+(26, 30, 2, 'processing', 'QR', NULL, 'ĐHBKHN'),
+(27, 1, 10, 'finished', 'QR', '2024-06-17 20:03:27', 'Khu Ngoại Giao Đoàn, Xuân Tảo, Bắc Từ Liêm, Hà ');
 
 -- --------------------------------------------------------
 
@@ -238,7 +243,11 @@ INSERT INTO `order_detail` (`orders_id`, `products_id`, `quantity`) VALUES
 (16, 17, 1),
 (17, 24, 2),
 (18, 16, 1),
-(26, 3, 1);
+(26, 3, 1),
+(27, 3, 1),
+(27, 4, 1),
+(27, 7, 1),
+(27, 8, 1);
 
 -- --------------------------------------------------------
 
@@ -283,7 +292,8 @@ INSERT INTO `products` (`products_id`, `image`, `name`, `price`, `description`) 
 (22, 'https://product.hstatic.net/1000075078/product/1717387907_man-cau-pho-mai_88d23328791b4d9fb2beb08378fbc4ad.jpg', 'Mãng Cầu Phô Mai Tươi', 55000, 'Mãng cầu Nam Bộ chín tự nhiên đậm vị, hòa quyện lớp foam phô mai tươi mềm mịn. Thêm chút Trà Xanh Tây Bắc êm dịu và thạch kim quất mềm tan càng dậy vị trái cây tươi mát. Khuấy đều để thưởng trọn vị sảng khoái.'),
 (23, 'https://product.hstatic.net/1000075078/product/1709005899_kimquat-xuan-1_eb248c1e71904e5f9323e2ba6a7b8d4f.jpg', 'Oolong Tứ Qúy Kim Quất Trân Châu', 49000, 'Đậm hương trà, sảng khoái du xuân cùng Oolong Tứ Quý Kim Quất Trân Châu. Vị nước cốt kim quất tươi chua ngọt, thêm trân châu giòn dai.'),
 (24, 'https://product.hstatic.net/1000075078/product/1709004168_vai-xuan-1_00a490efb43a4da187882d95337b2db9.jpg', 'Oolong Tứ Qúy Vải', 49000, 'Đậm hương trà, thanh mát sắc xuân với Oolong Tứ Quý Vải. Cảm nhận hương hoa đầu mùa, hòa quyện cùng vị vải chín mọng căng tràn sức sống.'),
-(25, 'https://product.hstatic.net/1000075078/product/tra-sen_905594_cb9a4dfb65884b33811ab70d149a5387.jpg', 'Oolong Tứ Qúy Sen', 49000, 'Nền trà oolong hảo hạng kết hợp cùng hạt sen tươi, bùi bùi và lớp foam cheese béo ngậy. Trà hạt sen là thức uống thanh mát, nhẹ nhàng phù hợp cho cả buổi sáng và chiều tối.');
+(25, 'https://product.hstatic.net/1000075078/product/tra-sen_905594_cb9a4dfb65884b33811ab70d149a5387.jpg', 'Oolong Tứ Qúy Sen', 49000, 'Nền trà oolong hảo hạng kết hợp cùng hạt sen tươi, bùi bùi và lớp foam cheese béo ngậy. Trà hạt sen là thức uống thanh mát, nhẹ nhàng phù hợp cho cả buổi sáng và chiều tối.'),
+(28, '../uploads/14721.jpg', ' PHÙ VÂN', 45000, 'Trà Ô Long Đỏ thượng hạng kết hợp cùng kem whipping nhẹ nhàng, sánh ngậy.');
 
 -- --------------------------------------------------------
 
@@ -403,13 +413,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `admins_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `admins_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `blog_posts`
 --
 ALTER TABLE `blog_posts`
-  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -421,13 +431,13 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `orders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `products_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `products_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `users`
