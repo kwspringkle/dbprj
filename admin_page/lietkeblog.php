@@ -23,6 +23,7 @@
                             <th>Thời gian tạo</th>
                             <th>Hình ảnh</th>
                             <th>Người tạo</th>
+                            <th>Sửa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,6 +43,9 @@
                                 <td><img src="<?= htmlspecialchars($row['image']) ?>" width="100" height="100"></td>
                                 <td>
                                         <?= htmlspecialchars($row['creator_name']) ?>
+                                </td>
+                                <td>
+                                    <a href="chinhsuablog.php?blog_id=<?= $row['blog_id'] ?>" class="btn btn-warning btn-margin">Edit</a>
                                 </td>
                             </tr>
                         <?php

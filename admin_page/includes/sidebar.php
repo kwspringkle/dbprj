@@ -54,8 +54,7 @@
     <div id="collapseOrders" class="collapse" aria-labelledby="headingOrders" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Các chức năng:</h6>
-            <a class="collapse-item" href="lietkedonhang.php">Xem danh sách đơn hàng</a>
-            <a class="collapse-item" href="chinhsuadonhang.php">Duyệt đơn hàng</a>
+            <a class="collapse-item" href="lietkedonhang.php">Duyệt đơn hàng</a>
         </div>
     </div>
 </li>

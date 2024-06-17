@@ -20,12 +20,13 @@
                             <th>ID</th>
                             <th>Tên đăng nhập</th>
                             <th>Họ tên</th>
+                            <th>Quyền</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
                         require("db/conn.php");
-                        $sql_str = "select admins_id, username, fullname from admins ;";
+                        $sql_str = "select admins_id, username, fullname, role from admins ;";
                         $result = mysqli_query($conn, $sql_str);
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
@@ -33,7 +34,9 @@
                             <td><?= htmlspecialchars($row['admins_id']) ?></td>
                             <td><?= htmlspecialchars($row['username']) ?></td>
                             <td><?= htmlspecialchars($row['fullname']) ?></td>
+                            <td><?= htmlspecialchars($row['role']) ?></td>
                         </tr>
+
                     <?php
                         }
                     ?> 

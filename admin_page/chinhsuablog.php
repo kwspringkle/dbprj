@@ -1,8 +1,8 @@
 <?php include("includes/header.php"); ?>
 
 <?php require('db/conn.php'); 
-$product_id = $_GET['products_id']; // ví dụ
-$sql = "SELECT * FROM products WHERE products_id = $product_id";
+$blog_id = $_GET['blog_id']; // ví dụ
+$sql = "SELECT * FROM blog_posts WHERE blog_id = $blog_id";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -11,7 +11,7 @@ if ($result->num_rows > 0) {
 ?>
 
 <div>
-    <h3>Chỉnh sửa sản phẩm</h3>   
+    <h3>Chỉnh sửa blog</h3>   
 </div>
 <style>
     #content{
@@ -27,24 +27,18 @@ if ($result->num_rows > 0) {
             <div class="col-lg-10">
                 <div class="p-4">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Chỉnh sửa sản phảm</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Chỉnh sửa blog</h1>
                     </div>
-                    <form class="user" method="post" action="edit_product.php" enctype="multipart/form-data">
+                    <form class="user" method="post" action="edit_blog.php" enctype="multipart/form-data">
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Tên sản phẩm" value="<?php echo $row['name']; ?>" required>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Tiêu đề" value="<?php echo $row['title']; ?>" required>
                             </div>
                         </div>
     
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <input type="number" class="form-control" id="price" name="price" placeholder="Giá" value ="<?php echo $row['price']; ?>"  required>
-                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" id="description" name="description" placeholder = "Mô tả" value = "<?php echo $row['description']; ?>" required>
+                                <input type="text" class="form-control" id="content" name="content" placeholder="Nội dung" value ="<?php echo $row['content']; ?>"  required>
                              </div>
                         </div>
 
