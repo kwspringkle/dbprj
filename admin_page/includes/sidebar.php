@@ -84,7 +84,7 @@
             <h6 class="collapse-header">Các chức năng:</h6>
             <a class="collapse-item" href="lietkeadmin.php">Xem danh sách admin</a>
             <a class="collapse-item" href="lietkeusers.php">Xem danh sách users</a>
-            <a class="collapse-item" href="lietkeusers.php">Thêm admin</a>
+            <a class="collapse-item" href="themadmin.php">Thêm admin</a>
         </div>
     </div>
 </li>

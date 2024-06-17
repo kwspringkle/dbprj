@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $file_tmp = $_FILES['image']['tmp_name'];
         $file_type = $_FILES['image']['type'];
 
-        $upload_directory = '../admin_page/uploads/';
+        $upload_directory = '../uploads/';
         $upload_path = $upload_directory . $file_name;
 
         // Tạo thư mục uploads nếu nó chưa tồn tại

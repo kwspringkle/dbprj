@@ -22,6 +22,7 @@
                             <th>Nội dung</th>
                             <th>Thời gian tạo</th>
                             <th>Hình ảnh</th>
+                            <th>Người tạo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,6 +39,12 @@
                             <td><?= htmlspecialchars($row['content']) ?></td>
                             <td><?= htmlspecialchars($row['created_at']) ?></td>
                             <td><img src="<?= $row['image'] ?>" width="100" height="100"></td>
+                            <td>
+                                <a href='profile.php?admins_id=<?= htmlspecialchars($_SESSION['user']['admins_id']) ?>'>
+                                    <?= $_SESSION['user']['fullname']?>
+                                </a>
+                            </td>
+                
                         </tr>
                     <?php
                         }
