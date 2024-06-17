@@ -8,6 +8,10 @@
 - Bùi Ý Nhi
 - Hà Trung Chiến
 
+### Cách chạy:
+Sử dụng xampp, đưa project vào file htdocs
+-->Mở web browser: `http://localhost`
+
 ### Clone repo về máy:
 ```sh
 git clone https://github.com/kwspringkle/dbprj
