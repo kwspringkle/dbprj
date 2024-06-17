@@ -1,0 +1,58 @@
+<?php include("includes/header.php"); ?>
+
+<style>
+    .table-responsive {
+        overflow-x: auto;
+    }
+</style>
+
+<div>
+    <?php
+    require("db/conn.php");
+    if (isset($_GET['admins_id'])) {
+        $id = $_GET['admins_id'];
+        $sql_str = "SELECT admins_id, username, fullname 
+                    FROM admins
+                    WHERE admins_id = $id";
+        $result = mysqli_query($conn, $sql_str);
+        if ($result && mysqli_num_rows($result) > 0) {
+            echo "<h3>Thông tin người tạo blog</h3>";
+            echo '<div class="card shadow mb-4">';
+            echo ' <div class="card-header py-3">';
+            echo '      <h6 class="m-0 font-weight-bold text-primary">Thông tin chi tiết</h6>';
+            echo '   </div>';
+            echo '  <div class="card-body">';
+            echo '    <div class="table-responsive">';
+            echo '           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">';
+            echo '               <thead>';
+            echo '                   <tr>';
+            echo '                       <th>Admin ID</th>';
+            echo '                       <th>Username</th>';
+            echo '                       <th>Fullname</th>';
+            echo '                   </tr>';
+            echo '               </thead>';
+            echo '               <tbody>';
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '                   <tr>';
+                echo '                       <td>' . htmlspecialchars($row['admins_id']) . '</td>';
+                echo '                       <td>' . htmlspecialchars($row['username']) . '</td>';
+                echo '                       <td>' . htmlspecialchars($row['fullname']) . '</td>';
+                echo '                   </tr>';
+            }
+
+            echo '               </tbody>';
+            echo '           </table>';
+            echo '       </div>';
+            echo '   </div>';
+            echo '</div>';
+        } else {
+            echo "<p>Thông tin admin không tồn tại.</p>";
+        }
+    } else {
+        echo "<p>Không có ID admin được cung cấp.</p>";
+    }
+    ?>
+</div>
+
+<?php include("includes/footer.php"); ?>

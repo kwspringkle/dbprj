@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $file_tmp = $_FILES['image']['tmp_name'];
     $file_type = $_FILES['image']['type'];
 
-    $upload_directory = 'thcsdl/admin_page/uploads/';
+    $upload_directory = '../uploads/';
     $upload_path = $upload_directory . $file_name;
 
     // Create uploads directory if it doesn't exist

@@ -3,6 +3,10 @@
     .table-responsive {
         overflow-x: auto;
     }
+    .btn-margin {
+        display: inline-block; /* Hiển thị thành phần trên cùng một dòng */
+        margin-bottom: 10px; /* Khoảng cách dọc giữa các nút */
+    }
 </style>
 <div>
     <h3>Tất cả sản phẩm </h3>
@@ -20,12 +24,13 @@
                             <th class="small-column">Giá</th>
                             <th class="small-column">Mô tả</th>
                             <th class="small-column">Hình ảnh</th>
+                            <th class="small-column">Xóa/sửa</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         require("db/conn.php");
-                        $sql_str = "SELECT * FROM products ORDER BY products_id";
+                        $sql_str = "SELECT * FROM products";
                         $result = mysqli_query($conn, $sql_str);
                         while ($row = mysqli_fetch_assoc($result)) {
                         ?>
@@ -35,6 +40,13 @@
                                 <td><?= $row['price'] ?></td>
                                 <td><?= $row['description'] ?></td>
                                 <td><img src="<?= $row['image'] ?>" width="100" height="100"></td>
+                                <td>
+                                <a href="xoasanpham.php?products_id=<?= $row['products_id'] ?>" 
+                                class="btn btn-danger btn-margin" onclick="return confirm('Do you want to delete this product?');">Del</a>
+
+                                <a href="chinhsuasanpham.php?products_id=<?= $row['products_id'] ?>" class="btn btn-warning btn-margin">Edit</a>
+
+                                </td>
                             </tr>
                         <?php
                         }

@@ -39,10 +39,8 @@
     <div id="collapseProduct" class="collapse" aria-labelledby="headingProduct" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Các chức năng:</h6>
-            <a class="collapse-item" href="lietkesanpham.php">Liệt kê</a>
-            <a class="collapse-item" href="themmoisanpham.php">Thêm mới sản phẩm</a>
-            <a class="collapse-item" href="chinhsuasanpham.php">Chỉnh sửa sản phẩm</a>
-            <a class="collapse-item" href="xoasanpham.php">Xóa sản phẩm</a>
+            <a class="collapse-item" href="lietkesanpham.php">Chỉnh sửa</a>
+            <a class="collapse-item" href="themmoisanpham.php">Thêm mới</a>
         </div>
     </div>
 </li>
@@ -71,9 +69,8 @@
     <div id="collapseBlog" class="collapse" aria-labelledby="headingBlog" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Các chức năng:</h6>
-            <a class="collapse-item" href="lietkeblog.php">Xem blog</a>
+            <a class="collapse-item" href="lietkeblog.php">Chỉnh sửa</a>
             <a class="collapse-item" href="themmoiblog.php">Thêm blog</a>
-            <a class="collapse-item" href="xoablog.php">Xóa blog</a>
         </div>
     </div>
 </li>
@@ -87,8 +84,8 @@
     <div id="collapseUsers" class="collapse" aria-labelledby="headingUsers" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Các chức năng:</h6>
-            <a class="collapse-item" href="lietkeadmin.php">Xem danh sách admin</a>
-            <a class="collapse-item" href="lietkeusers.php">Xem danh sách users</a>
+            <a class="collapse-item" href="lietkeadmin.php">Danh sách admin</a>
+            <a class="collapse-item" href="lietkeusers.php">Danh sách users</a>
             <a class="collapse-item" href="themadmin.php">Thêm admin</a>
         </div>
     </div>

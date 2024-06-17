@@ -1,8 +1,33 @@
-<?php include("includes/header.php"); ?>
+<?php
+// Check if 'products_id' is provided in the URL
+if (!isset($_GET['products_id'])) {
+    // Handle the case where 'products_id' is not provided in the URL
+    exit('Product ID is missing');
+}
 
-<div>
-    <h3>Xóa sản phẩm</h3>   
-</div>
+$del_id = $_GET['products_id'];
 
+require('db/conn.php'); // Adjust the path as necessary
 
-<?php include("includes/footer.php"); ?>
+// Use prepared statement to delete the product
+$sql_str = "DELETE FROM products WHERE products_id = ?";
+$stmt = $conn->prepare($sql_str);
+
+if ($stmt === false) {
+    // Handle error
+    exit('Prepare statement failed: ' . $conn->error);
+}
+
+$stmt->bind_param("i", $del_id); // Assuming 'products_id' is an integer
+
+if ($stmt->execute() === false) {
+    // Handle execution error
+    exit('Execute failed: ' . $stmt->error);
+}
+
+$stmt->close();
+
+// Redirect to list products page
+header('Location: lietkesanpham.php');
+exit;
+?>
