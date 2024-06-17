@@ -1,5 +1,6 @@
 <?php
 // Include your database connection file here
+ include("header.php"); 
 include("connectdb.php");
 
 // Check if the form is submitted
@@ -35,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<?php include("header.php"); ?>
+
 <!-- Your HTML and CSS code for the login form -->
 <!-- Make sure to set the form method to POST -->
 <div class="container login-container">

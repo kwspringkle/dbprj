@@ -35,7 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['fullname'] = $fullname; // Store full name in session
 
             // Redirect to blog.php after successful login
-            header("Location: blog.php");
+            echo "<script>window.location.href='index.php';</script>";
+            
             exit();
         } else {
             // Password is incorrect

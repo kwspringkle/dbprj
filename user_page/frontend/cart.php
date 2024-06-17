@@ -5,16 +5,20 @@ include("connectdb.php");
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   
+
     // Retrieve address, phone number, and payment method from the form
     $address = mysqli_real_escape_string($conn, $_POST['address']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
     $payment_method = mysqli_real_escape_string($conn, $_POST['paymentMethod']);
 
-    // Check if the phone number exists in the users table
-    $check_query = "SELECT users_id FROM users WHERE phone = '$phone'";
-    $result = mysqli_query($conn, $check_query);
+    // Assume you have a session variable storing username after user login
+    $username = $_SESSION['username'];
 
-    // If the phone number exists, retrieve user_id
+    // Get users_id based on username and phone
+    $get_users_id_query = "SELECT users_id FROM users WHERE username = '$username' AND phone = '$phone'";
+    $result = mysqli_query($conn, $get_users_id_query);
+
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $user_id = $row['users_id'];
@@ -49,18 +53,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Example: You might have a delete_product.php script to handle this
         $clear_cart_query = "DELETE FROM cart";
         mysqli_query($conn, $clear_cart_query);
+
         // Output a success message
         echo "Order placed successfully.";
 
         // Optionally redirect after successful order placement
         echo "<script>window.location.href='success.php';</script>";
-         exit();
+        exit();
     } else {
-        // If the phone number does not exist, redirect to login page or show a message
-        echo "Phone number not found . <a href='register.php'>Click here to register</a>.";
+        // If the username and phone combination does not match, show an error
+        echo "Username and phone number combination not found or does not match. Please check your information.";
     }
 }
 ?>
+
 
 <section class="h-100 h-custom" style="background-color: white;">
     <div class="container py-5 h-100">
@@ -149,12 +155,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 <h4 class="text-uppercase mb-3">Payment Method</h4>
                                                 <div id="paymentForm" method="POST" action="process_payment.php">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="paymentMethod" id="paymentCash" value="cash" checked>
-                                                        <label class="form-check-label" for="paymentCash">Cash</label>
+                                                        <input class="form-check-input" type="radio" name="paymentMethod" id="paymentCash" value="COD" checked>
+                                                        <label class="form-check-label" for="paymentCash">COD</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="paymentMethod" id="paymentQR" value="qr">
-                                                        <label class="form-check-label" for="paymentQR">QR Code</label>
+                                                        <input class="form-check-input" type="radio" name="paymentMethod" id="paymentQR" value="QR">
+                                                        <label class="form-check-label" for="paymentQR">QR </label>
                                                     </div>
                                                 </div>
                                             </div>
