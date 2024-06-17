@@ -46,6 +46,21 @@
         .navbar-nav .nav-item #Login {
             margin-left: 15px; 
         }
+
+        .about_taital_box {
+            width: 500px;
+            float: left;
+            background-color: #ffffff;
+            height: auto;
+            padding: 40px 20px 30px 20px;
+            box-shadow: 0px 0px 30px 0px;
+            position: absolute;
+            top: 1000px;
+        }
+        .navbar-light.bg-light {
+            background-color: lightgray;
+        }
+        
     </style>
 </head>
 <body>
@@ -117,7 +132,7 @@
                                     <p class="banner_text">More-or-less normal distribution of letters, as opposed to using </p>
                                     <div class="btn_main">
                                         <div class="about_bt"><a href="about.php">About Us</a></div>
-                                        <div class="callnow_bt active"><a href="contact.php">Call Now</a></div>
+                                        <div class="callnow_bt active"><a href="contact.php">Contact Us</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -130,63 +145,43 @@
     </div>
     <!-- banner section end -->
 
-    <!-- coffee section start -->
-    <div class="coffee_section layout_padding">
-        <div class="container">
-            <div class="row">
-                <h1 class="coffee_taital">OUR Coffee OFFER</h1>
+
+
+<!--about section start-->
+<div class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="about_taital" style="margin-bottom: 20px;">About Us</h1>
                 <div class="bulit_icon"><img src="images/bulit-icon.png" alt="Bullet Icon"></div>
             </div>
         </div>
-        <div class="coffee_section_2">
-            <div id="main_slider" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <!-- Coffee products loop here -->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="coffee_img"><img src="images/img-1.png" alt="Coffee Product"></div>
-                                    <h3 class="types_text">Product</h3>
-                                    <p class="looking_text">Looking at its layout. The point of</p>
-                                    <div class="read_bt"><a href="shop4.php">Read More</a></div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="coffee_img"><img src="images/img-1.png" alt="Coffee Product"></div>
-                                    <h3 class="types_text">Product</h3>
-                                    <p class="looking_text">Looking at its layout. The point of</p>
-                                    <div class="read_bt"><a href="shop4.php">Read More</a></div>
-                                </div>
-                                <!-- Repeat for other products -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Additional carousel items here -->
-                </div>
-                <!-- Carousel controls -->
-                <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
-                    <i class="fa fa-arrow-left"></i>
-                </a>
-                <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
-                    <i class="fa fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- coffee section end -->
 
-    <!-- about section start -->
-    <div class="about_section layout_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="about_taital">About Our shop</h1>
-                    <div class="bulit_icon"><img src="images/bulit-icon.png" alt="Bullet Icon"></div>
-                </div>
-            </div>
-            <div class="about_section_2 layout_padding">
-                <div class="image_iman"><img src="images/about-img.png" class="about_img" alt="About Image"></div>
-                <div class="about_taital_box">
-                    <h1 class="about_taital_1">Coffee distribution</h1>
-                    <p class="about_text">Has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editor has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editor.</p>
+                <!-- Original position of image and about_text -->
+        <div class="about_section_2 layout_padding">
+            <div class="image_iman"><img src="images/about-img.png" class="about_img" alt="About Image"></div>
+        </div>
+
+        <!-- Move the about_taital_box here -->
+        <div class="about_taital_box">
+            <h3 class="about_taital">Doze Cafe</h3>
+            <h2 class="about_text page-center">Project cuối kì học phần thực hành cơ sở dữ liệu.</h2>
+            <p class="about_text page-center">Chủ đề: Website cửa hàng bán cafe</p>
+            <p class="about_text page-center">Thành viên nhóm:</p>
+            <p class="about_text page-center">Trương Ngọc Mai</p>
+            <p class="about_text page-center">Trần Khánh Quỳnh</p>
+            <p class="about_text page-center">Bùi Ý Nhi</p>
+            <p class="about_text page-center">Hà Trung Chiến</p>
+        </div>
+
+
+        
+    </div>
+</div>
+<!--about section end-->
+
+<?php include('footer.php'); ?>
+
+
+
                    

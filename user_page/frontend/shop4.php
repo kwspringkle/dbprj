@@ -133,7 +133,7 @@ if(isset($_POST['add_to_cart'])){
   <div class="container">
 
     <div class="row">
-      <h1 class="coffee_taital">Coffees</h1>
+      <h4 class="coffee_taital">Products</h4>
       <div class="bulit_icon"><img src="images/bulit-icon.png"></div>
       <div class="icon-cart">
         <a href="cart.php">
@@ -188,12 +188,7 @@ if(isset($_POST['add_to_cart'])){
 
       </div>
       
-      <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
-        <i class="fa fa-arrow-left"></i>
-      </a>
-      <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
-        <i class="fa fa-arrow-right"></i>
-      </a>
+  
     </div>
   </div>
 

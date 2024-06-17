@@ -24,8 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user_id = $row['users_id'];
 
         // Insert the order details into the order table
-        $insert_order_query = "INSERT INTO orders (users_id, address, payment_method) 
-                               VALUES ('$user_id', '$address', '$payment_method')";
+        $insert_order_query = "INSERT INTO orders (users_id, address, payment_method, created_at) 
+                               VALUES ('$user_id', '$address', '$payment_method', NOW())";
         mysqli_query($conn, $insert_order_query);
 
         // Retrieve the auto-generated order_id
@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             </div>
                                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                 <a href="delete_product.php?id=<?php echo $cart_row['cart_id']; ?>">
-                                                    <img src="images/trash-can.jpg" style="width: 50px; height: 30px;">
+                                                    <img src="images/trash-can.jpg" style="width: 80px; height: 30px;">
                                                 </a>
                                             </div>
                                         </div>
@@ -130,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                     <div class="d-flex justify-content-between mb-4">
                                         <h5 class="text-uppercase">Items <?php echo mysqli_num_rows($cart_result); ?></h5>
-                                        <h5>€ <?php echo number_format($total_price, 2); ?></h5>
+                                        <h5>VND <?php echo number_format($total_price, 2); ?></h5>
                                     </div>
 
                                     <h5 class="text-uppercase mb-3">Shipping</h5>
@@ -139,14 +139,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <h5 class="text-uppercase mb-3">Address</h5>
                                         <div class="mb-5">
                                             <div data-mdb-input-init class="form-outline">
-                                                <input type="text" name="address" class="form-control form-control-lg"/>
+                                                <input type="text" name="address" class="form-control form-control-lg" style="font-size: 12px;"/>
                                             </div>
                                         </div>
 
                                         <h5 class="text-uppercase mb-3">Phone</h5>
                                         <div class="mb-5">
                                             <div data-mdb-input-init class="form-outline">
-                                                <input type="text" name="phone" class="form-control form-control-lg"/>
+                                                <input type="text" name="phone" class="form-control form-control-lg" style="font-size: 12px;"/>
                                             </div>
                                         </div>
 
@@ -168,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                         <div class="d-flex justify-content-between mb-5">
                                             <h5 class="text-uppercase">Total price</h5>
-                                            <h5>€ <?php echo number_format($total_price, 2); ?></h5>
+                                            <h5>VND <?php echo number_format($total_price, 2); ?></h5>
                                         </div>
                                         <button type="submit" name="submit" class="btn btn-dark btn-block btn-lg"
                                                 data-mdb-ripple-init data-mdb-ripple-color="dark">Buy
