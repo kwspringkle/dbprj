@@ -32,7 +32,8 @@
 
                             <div class="form-group row">
                                 <div class="col-sm-12">
-                                    <input type="file" class="form-control" id="image" name="image" required>
+                                    <label>Gắn link ảnh:</label>
+                                    <input type="text" class="form-control" id="image" name="image" required>
                                 </div>
                             </div>
 

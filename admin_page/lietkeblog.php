@@ -4,6 +4,10 @@
     .table-responsive {
         overflow-x: auto;
     }
+    .btn-margin {
+        display: inline-block; /* Hiển thị thành phần trên cùng một dòng */
+        margin-bottom: 10px; /* Khoảng cách dọc giữa các nút */
+    }
 </style>
 
 <div>
@@ -22,7 +26,7 @@
                             <th>Nội dung</th>
                             <th>Thời gian tạo</th>
                             <th>Hình ảnh</th>
-                            <th>Người tạo</th>
+                            <th>Người tạo/sửa blog</th>
                             <th>Sửa</th>
                         </tr>
                     </thead>
@@ -44,8 +48,11 @@
                                 <td>
                                         <?= htmlspecialchars($row['creator_name']) ?>
                                 </td>
+
                                 <td>
                                     <a href="chinhsuablog.php?blog_id=<?= $row['blog_id'] ?>" class="btn btn-warning btn-margin">Edit</a>
+                    
+                                    <a href="xoablog.php?blog_id=<?= $row['blog_id'] ?>" class="btn btn-danger btn-margin">Del</a>
                                 </td>
                             </tr>
                         <?php

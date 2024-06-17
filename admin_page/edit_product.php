@@ -1,49 +1,28 @@
-<?php
-include("db/conn.php");
+<?php 
+include('db/conn.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Sanitize and validate form inputs
-    $name = htmlspecialchars($_POST['name']);
-    $description = htmlspecialchars($_POST['description']);
-    $price = filter_var($_POST['price'], FILTER_VALIDATE_FLOAT);
+// Lấy product_id từ hidden input
+$product_id = $_POST['product_id'];
 
-    // File upload handling
-    $file_name = $_FILES['image']['name'];
-    $file_tmp = $_FILES['image']['tmp_name'];
-    $file_type = $_FILES['image']['type'];
+// Lấy dữ liệu từ form post
+$name = $_POST['name'];
+$price = $_POST['price'];
+$description = $_POST['description'];
+$image = $_POST['image'];
 
-    $upload_directory = '../uploads/';
-    $upload_path = $upload_directory . $file_name;
+// Câu lệnh SQL để cập nhật sản phẩm
+$sql_update = "UPDATE products SET 
+               name = '$name', 
+               price = '$price', 
+               description = '$description', 
+               image = '$image'
+               WHERE products_id = $product_id";
 
-    // Create uploads directory if it doesn't exist
-    if (!file_exists($upload_directory)) {
-        mkdir($upload_directory, 0777, true); // Creates the directory recursively with full permissions
-    }
-
-    // Check if file was uploaded successfully
-    if (move_uploaded_file($file_tmp, $upload_path)) {
-        // File uploaded successfully, proceed with database insertion
-        if (empty($name) || empty($description) || $price === false) {
-            echo "Điền đầy đủ thông tin và giá phải là số.";
-        } else {
-            // Prepare SQL statement
-            $stmt = $conn->prepare("UPDATE products SET description = ?, price = ?, image = ? WHERE name = ?;");
-            $stmt->bind_param("ssds", $name, $description, $price, $upload_path);
-
-            // Execute SQL statement
-            if ($stmt->execute()) {
-                echo "Sửa sản phẩm thành công";
-                header("Location: lietkesanpham.php");
-                exit();
-            } else {
-                echo "Lỗi khi sửa sản phẩm: " . $stmt->error;
-            }
-
-            // Close statement
-            $stmt->close();
-        }
-    } else {
-        echo "Lỗi khi tải lên file ảnh";
-    }
+// Thực hiện câu lệnh SQL
+if ($conn->query($sql_update) === TRUE) {
+    header("location: lietkesanpham.php");
+    exit();
+} else {
+    echo "Lỗi: " . $sql_update . "<br>" . $conn->error;
 }
 ?>
