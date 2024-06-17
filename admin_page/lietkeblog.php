@@ -2,12 +2,12 @@
 
 <style>
     .table-responsive {
-    overflow-x: auto;
-}
-
+        overflow-x: auto;
+    }
 </style>
+
 <div>
-    <h3>Danh sách blog</h3>   
+    <h3>Danh sách blog</h3>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Danh sách blog</h6>
@@ -26,36 +26,32 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
+                        <?php
                         require("db/conn.php");
-                        $sql_str = "select b.*
-                        from blog_posts b";
+                        $sql_str = "SELECT b.*, a.fullname AS creator_name
+                                    FROM blog_posts b
+                                    INNER JOIN admins a ON b.admins_id = a.admins_id";
                         $result = mysqli_query($conn, $sql_str);
                         while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                        <tr>
-                            <td><?= htmlspecialchars($row['blog_id']) ?></td>
-                            <td><?= htmlspecialchars($row['title']) ?></td>
-                            <td><?= htmlspecialchars($row['content']) ?></td>
-                            <td><?= htmlspecialchars($row['created_at']) ?></td>
-                            <td><img src="<?= $row['image'] ?>" width="100" height="100"></td>
-                            <td>
-                                <a href='profile.php?admins_id=<?= htmlspecialchars($_SESSION['user']['admins_id']) ?>'>
-                                    <?= $_SESSION['user']['fullname']?>
-                                </a>
-                            </td>
-                
-                        </tr>
-                    <?php
+                            ?>
+                            <tr>
+                                <td><?= htmlspecialchars($row['blog_id']) ?></td>
+                                <td><?= htmlspecialchars($row['title']) ?></td>
+                                <td><?= htmlspecialchars($row['content']) ?></td>
+                                <td><?= htmlspecialchars($row['created_at']) ?></td>
+                                <td><img src="<?= htmlspecialchars($row['image']) ?>" width="100" height="100"></td>
+                                <td>
+                                        <?= htmlspecialchars($row['creator_name']) ?>
+                                </td>
+                            </tr>
+                        <?php
                         }
-                    ?> 
+                        ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
-
-
 
 <?php include("includes/footer.php"); ?>

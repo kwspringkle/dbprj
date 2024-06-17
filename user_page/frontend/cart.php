@@ -28,14 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $order_id = mysqli_insert_id($conn);
 
         // Select items from cart with product details using product name
-        $cart_query = "SELECT c.id AS cart_id, c.quantity, p.products_id AS product_id, p.name, p.price 
-                       FROM cart c
-                       JOIN products p ON c.name = p.name";
+        $cart_query = "SELECT * from cart_view";
         $cart_result = mysqli_query($conn, $cart_query);
 
         // Insert each product into order_detail table
         while ($cart_row = mysqli_fetch_assoc($cart_result)) {
-            $cart_id = $cart_row['cart_id']; // Optional: If you need cart_id for further processing
+            //$cart_id = $cart_row['cart_id']; // Optional: If you need cart_id for further processing
 
             $product_id = $cart_row['product_id'];
             $quantity = $cart_row['quantity'];
