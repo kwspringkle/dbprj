@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          exit();
     } else {
         // If the phone number does not exist, redirect to login page or show a message
-        echo "Phone number not found in the users table. <a href='login.php'>Click here to login</a>.";
+        echo "Phone number not found . <a href='register.php'>Click here to register</a>.";
     }
 }
 ?>

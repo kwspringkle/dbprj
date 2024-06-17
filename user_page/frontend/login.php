@@ -3,13 +3,13 @@
 include("connectdb.php");
 
 // Initialize session
- session_start();
+ 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve username and password from the form
     $username = $_POST["username"];
     $password = $_POST["password"];
-
+    session_start();
     // Query to check if the username exists and get the user_id, password, and full name
     $sql_check_user = "SELECT users_id, password, fullname FROM users WHERE username = ?";
     
@@ -82,7 +82,7 @@ $conn->close();
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Login Now</button>
                     <hr />
-                    Not registered? <a href="register.php">Click here</a> or go to <a href="indexx.html">Home</a>
+                    Not registered? <a href="register.php">Click here</a> or go to <a href="index.html">Home</a>
                 </form>
             </div>
         </div>
