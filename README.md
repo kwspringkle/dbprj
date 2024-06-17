@@ -2,7 +2,7 @@
 
 ## Chủ đề: Website cửa hàng bán cafe
 
-### Thành viên nhóm:
+### Nhóm 2_Thành viên nhóm:
 - Trương Ngọc Mai
 - Trần Khánh Quỳnh
 - Bùi Ý Nhi
