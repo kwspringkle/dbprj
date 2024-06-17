@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Điền đầy đủ thông tin và giá phải là số.";
         } else {
             // Prepare SQL statement
-            $stmt = $conn->prepare("INSERT INTO products (name, description, price, image) VALUES (?, ?, ?, ?)");
+            $stmt = $conn->prepare("UPDATE products SET description = ?, price = ?, image = ? WHERE name = ?;");
             $stmt->bind_param("ssds", $name, $description, $price, $upload_path);
 
             // Execute SQL statement

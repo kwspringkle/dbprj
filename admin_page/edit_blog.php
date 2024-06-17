@@ -27,8 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (move_uploaded_file($file_tmp, $upload_path)) {
         // File uploaded successfully, proceed with database insertion
         // Prepare SQL statement
-        $stmt = $conn->prepare("INSERT INTO blog_posts (title, content, image, admins_id) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $title, $content, $upload_path, $admins_id);
+        $stmt = $conn->prepare("UPDATE blog_posts SET title = ?, content = ?, image = ? WHERE id = ?");
+        $stmt->bind_param("sssi", $title, $content, $upload_path, $admins_id);
+
+        // Assuming $title, $content, $image are variables holding updated values
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $image = $_FILES['image']['name']; // assuming file upload
+        $blog_id = $_GET['blog_id'];
 
         // Execute SQL statement
         if ($stmt->execute()) {
