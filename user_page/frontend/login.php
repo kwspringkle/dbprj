@@ -3,13 +3,13 @@
 include("connectdb.php");
 
 // Initialize session
- session_start();
+ 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve username and password from the form
     $username = $_POST["username"];
     $password = $_POST["password"];
-
+    session_start();
     // Query to check if the username exists and get the user_id, password, and full name
     $sql_check_user = "SELECT users_id, password, fullname FROM users WHERE username = ?";
     
