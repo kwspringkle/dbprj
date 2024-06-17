@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2024 at 01:06 PM
+-- Generation Time: Jun 17, 2024 at 11:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `coffee`
+-- Database: `coffeeshop`
 --
 
 -- --------------------------------------------------------
@@ -44,7 +44,8 @@ INSERT INTO `admins` (`admins_id`, `username`, `password`, `fullname`) VALUES
 (3, 'mai@dozecafe.com', 'maixau1234', 'Trương Ngọc Mai'),
 (4, 'nhi@dozecafe.com', 'nho', 'Bùi Ý Nhi'),
 (5, 'chien@dozecafe.com', 'chuoibien', 'Hà Trung Chiến'),
-(6, 'quynh@dozecafe.com', 'meomeo', 'Trần Khánh Quỳnh');
+(6, 'quynh@dozecafe.com', 'meomeo', 'Trần Khánh Quỳnh'),
+(9, 'admin3@dozecafe.com', 'admin3', 'admin3');
 
 -- --------------------------------------------------------
 
@@ -57,23 +58,51 @@ CREATE TABLE `blog_posts` (
   `admins_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text DEFAULT NULL,
-  `image` varchar(2048) DEFAULT NULL
+  `image` varchar(2048) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `blog_posts`
 --
 
-INSERT INTO `blog_posts` (`blog_id`, `admins_id`, `title`, `content`, `image`) VALUES
-(1, 4, 'Thầy Phương - người đã tạo cảm hứng cho chúng tôi', 'Thầy Phương là nguồn cảm hứng để chúng tôi lập nên quán cà phê này, mang đến không gian thư giãn và sáng tạo cho mọi người. Qua học phần thực hành CSDL, chúng tôi không chỉ học thêm được rất nhiều về kiến thức môn học, mà còn tích lũy được nhiều trải nghiệm, nhiều bài học, những kinh nghiệm hữu ích trong cuộc sống. ', 'https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/335905476_891499558741787_4169812642276808370_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEf0GB7heMi60V6nBqyTnexQBQnCwf4gIpAFCcLB_iAinCMH-BkE2pHiglyy2-0u0NuaD57UK1ZAPrkpkBoCir2&_nc_ohc=Be2VeCSfbdQQ7kNvgFpObqq&_nc_ht=scontent.fhan17-1.fna&oh=00_AYBrzwew2OEfWg57v6s9oWKJtu-yDRlLo4LQ_6yG4ZKSfQ&oe=666F3919'),
-(2, 2, 'Hành trình mở quán cà phê', 'Từ ý tưởng đến thực tế, chúng tôi đã trải qua rất nhiều thử thách để có được quán cà phê như ngày hôm nay.', 'https://th.bing.com/th/id/R.4bc832972160b011e28697e3b0884232?rik=fF4k6L2xjAhv1Q&riu=http%3a%2f%2fstatic.independent.co.uk%2fs3fs-public%2fthumbnails%2fimage%2f2013%2f01%2f02%2f19%2fSmall-Batch.jpg&ehk=AumbHOfSWTXGsHm69j96Ht58pf%2fPii2kjT1O8%2fQ9eLU%3d&risl=&pid=ImgRaw&r=0'),
-(3, 5, 'Menu đồ uống mới tại quán', 'Chúng tôi liên tục cập nhật menu với các đồ uống mới lạ và hấp dẫn.', 'https://i.etsystatic.com/11154166/r/il/2a8047/1760908365/il_fullxfull.1760908365_lsh7.jpg'),
-(4, 3, 'Đội ngũ nhân viên nhiệt tình', 'Nhân viên của chúng tôi luôn thân thiện và sẵn sàng phục vụ khách hàng với nụ cười.', 'https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/404603538_1284554912935324_7158885571979687665_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEmTd1aGp98x4h_L8zRAAFgwtp7oH5XaFPC2nugfldoU_UiQVCOSCE7bjXp23QXpuOZZ50TZWo8aCwvJx2Nnbg3&_nc_ohc=gnOhPDkvAcwQ7kNvgGzDxW7&_nc_ht=scontent.fhan17-1.fna&oh=00_AYBs-XzTYo_AGZtAMia528-m9yAu_MIT1v7JcTlXtnPQPg&oe=666F5736'),
-(5, 2, 'Lợi ích của cà phê đối với sức khỏe', 'Cà phê không chỉ giúp bạn tỉnh táo mà còn có nhiều lợi ích sức khỏe khác.', 'https://th.bing.com/th/id/OIP.pxNzj6p1CkBilArRqyWTGwHaE8?rs=1&pid=ImgDetMain'),
-(6, 1, 'Đồ uống đặc biệt mùa hè', 'Mùa hè này, hãy thử ngay các món đồ uống mát lạnh đặc biệt của chúng tôi.', 'https://phela.vn/wp-content/uploads/2021/07/14721.jpg'),
-(7, 6, 'Gặp gỡ barista tài năng của quán', 'Chúng tôi tự hào giới thiệu những barista tài năng, người tạo nên những ly cà phê tuyệt vời.', 'image12.jpg'),
-(8, 6, 'Cách lựa chọn hạt cà phê chất lượng', 'Tìm hiểu cách chúng tôi lựa chọn những hạt cà phê chất lượng cao.', 'https://th.bing.com/th/id/OIP.u5deXVzRa1_rBPGfjmz-1gHaE8?rs=1&pid=ImgDetMain'),
-(9, 4, 'Đồ uống phù hợp với tâm trạng của bạn', 'Khám phá các món đồ uống phù hợp với từng tâm trạng của bạn.', 'https://phela.vn/wp-content/uploads/2021/07/14853.jpg');
+INSERT INTO `blog_posts` (`blog_id`, `admins_id`, `title`, `content`, `image`, `created_at`) VALUES
+(1, 4, 'Thầy Phương - người đã tạo cảm hứng cho chúng tôi', 'Thầy Phương là nguồn cảm hứng để chúng tôi lập nên quán cà phê này, mang đến không gian thư giãn và sáng tạo cho mọi người. Qua học phần thực hành CSDL, chúng tôi không chỉ học thêm được rất nhiều về kiến thức môn học, mà còn tích lũy được nhiều trải nghiệm, nhiều bài học, những kinh nghiệm hữu ích trong cuộc sống. ', 'https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/335905476_891499558741787_4169812642276808370_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEf0GB7heMi60V6nBqyTnexQBQnCwf4gIpAFCcLB_iAinCMH-BkE2pHiglyy2-0u0NuaD57UK1ZAPrkpkBoCir2&_nc_ohc=Be2VeCSfbdQQ7kNvgFpObqq&_nc_ht=scontent.fhan17-1.fna&oh=00_AYBrzwew2OEfWg57v6s9oWKJtu-yDRlLo4LQ_6yG4ZKSfQ&oe=666F3919', '2024-06-09 22:26:43'),
+(2, 2, 'Hành trình mở quán cà phê', 'Từ ý tưởng đến thực tế, chúng tôi đã trải qua rất nhiều thử thách để có được quán cà phê như ngày hôm nay.', 'https://th.bing.com/th/id/R.4bc832972160b011e28697e3b0884232?rik=fF4k6L2xjAhv1Q&riu=http%3a%2f%2fstatic.independent.co.uk%2fs3fs-public%2fthumbnails%2fimage%2f2013%2f01%2f02%2f19%2fSmall-Batch.jpg&ehk=AumbHOfSWTXGsHm69j96Ht58pf%2fPii2kjT1O8%2fQ9eLU%3d&risl=&pid=ImgRaw&r=0', '2024-06-09 22:27:00'),
+(3, 5, 'Menu đồ uống mới tại quán', 'Chúng tôi liên tục cập nhật menu với các đồ uống mới lạ và hấp dẫn.', 'https://i.etsystatic.com/11154166/r/il/2a8047/1760908365/il_fullxfull.1760908365_lsh7.jpg', '2024-06-14 22:27:52'),
+(4, 3, 'Đội ngũ nhân viên nhiệt tình', 'Nhân viên của chúng tôi luôn thân thiện và sẵn sàng phục vụ khách hàng với nụ cười.', 'https://posapp.vn/wp-content/uploads/2020/01/nhan-vien-quan-cafe-2.jpg', '2024-06-03 22:28:00'),
+(5, 2, 'Lợi ích của cà phê đối với sức khỏe', 'Cà phê không chỉ giúp bạn tỉnh táo mà còn có nhiều lợi ích sức khỏe khác.', 'https://th.bing.com/th/id/OIP.pxNzj6p1CkBilArRqyWTGwHaE8?rs=1&pid=ImgDetMain', '2024-06-04 22:28:07'),
+(6, 1, 'Đồ uống đặc biệt mùa hè', 'Mùa hè này, hãy thử ngay các món đồ uống mát lạnh đặc biệt của chúng tôi.', 'https://phela.vn/wp-content/uploads/2021/07/14721.jpg', '2024-06-11 22:28:16'),
+(7, 6, 'Gặp gỡ barista tài năng của quán', 'Chúng tôi tự hào giới thiệu những barista tài năng, người tạo nên những ly cà phê tuyệt vời.', 'https://th.bing.com/th/id/OIP.F1fqm8ke0rGjz81wG_DdhQAAAA?rs=1&pid=ImgDetMain', '2024-06-11 22:28:23'),
+(8, 6, 'Cách lựa chọn hạt cà phê chất lượng', 'Tìm hiểu cách chúng tôi lựa chọn những hạt cà phê chất lượng cao.', 'https://th.bing.com/th/id/OIP.u5deXVzRa1_rBPGfjmz-1gHaE8?rs=1&pid=ImgDetMain', '2024-06-15 22:28:32'),
+(9, 4, 'Đồ uống phù hợp với tâm trạng của bạn', 'Khám phá các món đồ uống phù hợp với từng tâm trạng của bạn.', 'https://phela.vn/wp-content/uploads/2021/07/14853.jpg', '2024-06-04 22:28:40'),
+(15, 2, 'BST Ô Long Matcha – Một phiên bản sáng tạo từ Ô Long nguyên bản', 'BST Ô Long Matcha – Một phiên bản sáng tạo từ Ô Long nguyên bản Với cảm hứng bất tận từ nguồn nông sản Việt Nam, Phê La tự hào mang đến Bộ sưu tập Ô Long Matcha, gồm hai sản phẩm Săn Mây (Matcha đá xay) và Matcha Coco Latte. Hoà quyện giữa tầng hương của trà đặc sản cùng vị dừa ngọt thơm từ “Thủ phủ dừa của Việt Nam”, Săn Mây và Matcha Coco Latte là trải nghiệm đầy hứng khởi chinh phục những vị khách có gu thưởng thức tinh tế! Sự kết hợp với Sữa Dừa Bến Tre không chỉ gợi nhắc hương vị thân quen mà còn tạo nên một điểm nhấn độc đáo, mang đậm bản sắc văn hóa đặc trưng của người Việt.', '../uploads/banner-1-1.jpg', '2024-06-17 08:57:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `cart_view`
+-- (See below for the actual view)
+--
+CREATE TABLE `cart_view` (
+`name` varchar(255)
+,`price` int(11)
+,`quantity` int(11)
+);
 
 -- --------------------------------------------------------
 
@@ -164,7 +193,8 @@ INSERT INTO `orders` (`orders_id`, `users_id`, `admins_id`, `status`, `payment_m
 (22, 17, NULL, 'processing', 'QR', '2024-06-12 17:56:49', 'Số 29 Nguyễn Chí Thanh, Hà Nội, Việt Nam'),
 (23, 13, 3, 'delivered', 'COD', '2024-06-12 17:56:49', 'Số 6 Thanh Xuân, Hà Nội, Việt Nam'),
 (24, 2, 5, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 19 Ba Đình, Hà Nội, Việt Nam'),
-(25, 22, NULL, 'processing', 'COD', '2024-06-12 17:56:49', 'Số 13 Đông Anh, Hà Nội, Việt Nam');
+(25, 22, NULL, 'processing', 'COD', '2024-06-12 17:56:49', 'Số 13 Đông Anh, Hà Nội, Việt Nam'),
+(26, 30, NULL, NULL, 'QR', NULL, 'ĐHBKHN');
 
 -- --------------------------------------------------------
 
@@ -207,7 +237,8 @@ INSERT INTO `order_detail` (`orders_id`, `products_id`, `quantity`) VALUES
 (15, 1, 3),
 (16, 17, 1),
 (17, 24, 2),
-(18, 16, 1);
+(18, 16, 1),
+(26, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -298,7 +329,20 @@ INSERT INTO `users` (`users_id`, `username`, `password`, `fullname`, `phone`) VA
 (23, 'customer22@gmail.com', '12345678', 'Nguyễn Thị V', '0923456782'),
 (24, 'customer23@gmail.com', '12345678', 'Lê Văn W', '0934567893'),
 (25, 'customer24@gmail.com', '12345678', 'Trần Thị X', '0945678904'),
-(26, 'customer25@gmail.com', '12345678', 'Phạm Văn Y', '0956789015');
+(26, 'customer25@gmail.com', '12345678', 'Phạm Văn Y', '0956789015'),
+(27, 'userdemo@demo', '$2y$10$niZzIQ5gKMia1cpp.mMd2ek5LQckNaXoR6f6KQQPqHC4qTmJz/hzC', 'Khanh Quynh', '0345789610'),
+(28, 'gru@cafe', '$2y$10$r3ewQlzW8milhbT4M9zhbeQ9Yu3V5Fq2DPnUSXyYbbhjlBNX0YNo.', 'gru', '12345678'),
+(29, 'quynh@dozecafe.com', '$2y$10$TqHwx10VKB8dgYyuD5ciMumCd5SGXw3VC3m9sTiE81fqt0CrylO8O', 'Trần Khánh Quỳnh', '0929384186'),
+(30, 'quynh@dozecafe.com', '$2y$10$TqHwx10VKB8dgYyuD5ciMumCd5SGXw3VC3m9sTiE81fqt0CrylO8O', 'Trần Khánh Quỳnh', '0123456789');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `cart_view`
+--
+DROP TABLE IF EXISTS `cart_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cart_view`  AS SELECT `products`.`name` AS `name`, `products`.`price` AS `price`, `order_detail`.`quantity` AS `quantity` FROM (`products` join `order_detail` on(`products`.`products_id` = `order_detail`.`products_id`)) ;
 
 --
 -- Indexes for dumped tables
@@ -359,13 +403,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `admins_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `admins_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `blog_posts`
 --
 ALTER TABLE `blog_posts`
-  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -377,19 +421,19 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `orders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `products_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `products_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `users_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `users_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables

@@ -1,41 +1,38 @@
 <?php
-    // Include your database connection file here
-    include("connectdb.php");
-    
-    // Check if the form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Retrieve username, password, full name, and phone number from the form
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-        $fullname = $_POST["fullname"];
-        $phone = $_POST["phone"];
-        
-        // Hash the password for security
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+// Include your database connection file here
+include("connectdb.php");
 
-        // Check if the phone number already exists in the database
-        $sql_check = "SELECT * FROM users WHERE phone = '$phone'";
-        $result_check = mysqli_query($conn, $sql_check);
-        if (mysqli_num_rows($result_check) > 0) {
-            echo "Phone number already exists. Please use a different phone number.";
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve username, password, full name, and phone number from the form
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $fullname = $_POST["fullname"];
+    $phone = $_POST["phone"];
+
+    // Check if the phone number already exists in the database
+    $sql_check = "SELECT * FROM users WHERE phone = '$phone'";
+    $result_check = mysqli_query($conn, $sql_check);
+    if (mysqli_num_rows($result_check) > 0) {
+        echo "Phone number already exists. Please use a different phone number.";
+    } else {
+        // Prepare and execute the SQL query to update the user table
+        $sql_update = "UPDATE users SET password = '$password' WHERE username = '$username'";
+        if (mysqli_query($conn, $sql_update)) {
+            echo "Username and password updated successfully.";
         } else {
-            // Prepare and execute the SQL query to update the user table
-            $sql_update = "UPDATE users SET password = '$hashed_password' WHERE username = '$username'";
-            if (mysqli_query($conn, $sql_update)) {
-                echo "Username and password updated successfully.";
-            } else {
-                echo "Error updating username and password: " . mysqli_error($conn);
-            }
+            echo "Error updating username and password: " . mysqli_error($conn);
+        }
 
-            // Prepare and execute the SQL query to insert a new user into the users table
-            $sql_insert = "INSERT INTO users (username, password, fullname, phone) VALUES ('$username', '$hashed_password', '$fullname', '$phone')";
-            if (mysqli_query($conn, $sql_insert)) {
-                echo "New user inserted successfully.";
-            } else {
-                echo "Error inserting new user: " . mysqli_error($conn);
-            }
+        // Prepare and execute the SQL query to insert a new user into the users table
+        $sql_insert = "INSERT INTO users (username, password, fullname, phone) VALUES ('$username', '$password', '$fullname', '$phone')";
+        if (mysqli_query($conn, $sql_insert)) {
+            echo "New user inserted successfully.";
+        } else {
+            echo "Error inserting new user: " . mysqli_error($conn);
         }
     }
+}
 ?>
 
 <?php include("header.php"); ?>

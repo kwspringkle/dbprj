@@ -3,13 +3,15 @@
 include("connectdb.php");
 
 // Initialize session
- 
+
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    session_start();
     // Retrieve username and password from the form
     $username = $_POST["username"];
     $password = $_POST["password"];
-    session_start();
+    
     // Query to check if the username exists and get the user_id, password, and full name
     $sql_check_user = "SELECT users_id, password, fullname FROM users WHERE username = ?";
     
@@ -32,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $username;
             $_SESSION['fullname'] = $fullname; // Store full name in session
 
-            // Redirect to indexx.php after successful login
+            // Redirect to blog.php after successful login
             header("Location: blog.php");
             exit();
         } else {
@@ -49,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
+
 
 
 <?php include("header.php"); ?>
