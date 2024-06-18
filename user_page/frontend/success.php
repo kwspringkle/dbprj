@@ -15,7 +15,7 @@ include("header.php");?>
                        <a href="shop4.php">Click here</a> to go back to shop or go to <a href="index.php">Home</a>
 </div></div></div></div>
 
-   <?php include("footer.php")?>
+
 
 
    

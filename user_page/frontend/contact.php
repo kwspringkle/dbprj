@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $users_id = $row['users_id'];
 
         // Chuẩn bị câu lệnh SQL để chèn dữ liệu vào bảng messages
-        $sql_insert_message = "INSERT INTO messages (users_id, content) VALUES ('$users_id', '$message')";
+        $sql_insert_message = "INSERT INTO messages (users_id, content, created_at) VALUES ('$users_id', '$message', NOW())";
 
         // Thực thi câu lệnh SQL và kiểm tra
         if ($conn->query($sql_insert_message) === TRUE) {
