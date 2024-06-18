@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2024 at 04:01 PM
+-- Generation Time: Jun 18, 2024 at 04:24 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,7 +47,7 @@ INSERT INTO `admins` (`admins_id`, `username`, `password`, `fullname`, `role`) V
 (5, 'chien@dozecafe.com', 'chuoibien', 'Hà Trung Chiến', 'admin'),
 (6, 'quynh@dozecafe.com', 'meomeo', 'Trần Khánh Quỳnh', 'admin'),
 (9, 'admin3@dozecafe.com', 'admin3', 'admin3', 'admin'),
-(10, 'superadmin', '123456', 'Superadmin', 'superadmin'),
+(10, 'superadmin', '1234567', 'Superadmin', 'superadmin'),
 (13, 'admin6@dozecafe.com', '123456', 'admin6', 'admin');
 
 -- --------------------------------------------------------
@@ -76,11 +76,11 @@ INSERT INTO `blog_posts` (`blog_id`, `admins_id`, `title`, `content`, `image`, `
 (4, 3, 'Đội ngũ nhân viên nhiệt tình', 'Nhân viên của chúng tôi luôn thân thiện và sẵn sàng phục vụ khách hàng với nụ cười.', 'https://posapp.vn/wp-content/uploads/2020/01/nhan-vien-quan-cafe-2.jpg', '2024-06-03 22:28:00'),
 (5, 2, 'Lợi ích của cà phê đối với sức khỏe', 'Cà phê không chỉ giúp bạn tỉnh táo mà còn có nhiều lợi ích sức khỏe khác.', 'https://th.bing.com/th/id/OIP.pxNzj6p1CkBilArRqyWTGwHaE8?rs=1&pid=ImgDetMain', '2024-06-04 22:28:07'),
 (6, 1, 'Đồ uống đặc biệt mùa hè', 'Mùa hè này, hãy thử ngay các món đồ uống mát lạnh đặc biệt của chúng tôi.', 'https://phela.vn/wp-content/uploads/2021/07/14721.jpg', '2024-06-11 22:28:16'),
-(7, 6, 'Gặp gỡ barista tài năng của quán', 'Chúng tôi tự hào giới thiệu những barista tài năng, người tạo nên những ly cà phê tuyệt vời.', 'https://th.bing.com/th/id/OIP.F1fqm8ke0rGjz81wG_DdhQAAAA?rs=1&pid=ImgDetMain', '2024-06-11 22:28:23'),
+(7, 6, 'Gặp gỡ barista tài năng của quán', 'Chúng tôi tự hào giới thiệu những barista tài năng, người tạo nên những ly cà phê tuyệt vời.', 'https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-1/402921272_1283236633067152_2907508500217105652_n.jpg?stp=dst-jpg_s200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEYcHDwgg89Q-4CoaoaXMA_J1NHAGEi8zQnU0cAYSLzNAg6MbM-_Kg3FtEsyzCcOaiNy5g0mIv_lVHBY0MoDwHE&_nc_ohc=TXLH2qhTYNAQ7kNvgEzdXAm&_nc_ht=scontent.fhan14-1.fna&oh=00_AYBVuo-t3IBL0iGTQRojG4NGYoQYUOnVU9TGhe32Dye7AQ&oe=66769730', '2024-06-11 22:28:23'),
 (8, 6, 'Cách lựa chọn hạt cà phê chất lượng', 'Tìm hiểu cách chúng tôi lựa chọn những hạt cà phê chất lượng cao.', 'https://th.bing.com/th/id/OIP.u5deXVzRa1_rBPGfjmz-1gHaE8?rs=1&pid=ImgDetMain', '2024-06-15 22:28:32'),
 (9, 4, 'Đồ uống phù hợp với tâm trạng của bạn', 'Khám phá các món đồ uống phù hợp với từng tâm trạng của bạn.', 'https://phela.vn/wp-content/uploads/2021/07/14853.jpg', '2024-06-04 22:28:40'),
-(15, 2, 'BST Ô Long Matcha – Một phiên bản sáng tạo từ Ô Long nguyên bản', 'BST Ô Long Matcha – Một phiên bản sáng tạo từ Ô Long nguyên bản Với cảm hứng bất tận từ nguồn nông sản Việt Nam, Phê La tự hào mang đến Bộ sưu tập Ô Long Matcha, gồm hai sản phẩm Săn Mây (Matcha đá xay) và Matcha Coco Latte. Hoà quyện giữa tầng hương của trà đặc sản cùng vị dừa ngọt thơm từ “Thủ phủ dừa của Việt Nam”, Săn Mây và Matcha Coco Latte là trải nghiệm đầy hứng khởi chinh phục những vị khách có gu thưởng thức tinh tế! Sự kết hợp với Sữa Dừa Bến Tre không chỉ gợi nhắc hương vị thân quen mà còn tạo nên một điểm nhấn độc đáo, mang đậm bản sắc văn hóa đặc trưng của người Việt.', '../uploads/banner-1-1.jpg', '2024-06-17 08:57:21'),
-(18, 2, 'Đồ uống phù hợp với tâm trạng của bạn', 'Khám phá các món đồ uống phù hợp với từng tâm trạng của bạn. edit', '../uploads/14410.jpg', NULL);
+(15, 10, 'BST Ô Long Matcha – Một phiên bản sáng tạo từ Ô Long nguyên bản', 'BST Ô Long Matcha – Một phiên bản sáng tạo từ Ô Long nguyên bản Với cảm hứng bất tận từ nguồn nông sản Việt Nam, Phê La tự hào mang đến Bộ sưu tập Ô Long Matcha, gồm hai sản phẩm Săn Mây (Matcha đá xay) và Matcha Coco Latte. Hoà quyện giữa tầng hương của trà đặc sản cùng vị dừa ngọt thơm từ “Thủ phủ dừa của Việt Nam”, Săn Mây và Matcha Coco Latte là trải nghiệm đầy hứng khởi chinh phục những vị khách có gu thưởng thức tinh tế! Sự kết hợp với Sữa Dừa Bến Tre không chỉ gợi nhắc hương vị thân quen mà còn tạo nên một điểm nhấn độc đáo, mang đậm bản sắc văn hóa đặc trưng của người Việt.', 'https://phela.vn/wp-content/uploads/2023/05/banner-1-1.jpg', '2024-06-17 08:57:21'),
+(19, 10, 'BST CÀ PHÊ – SÁNG TẠO TỪ NGUYÊN BẢN', 'Giữ trọn những nốt hương nguyên bản vốn có của hạt cà phê, Phê La khéo léo kết hợp cá tính từ hai vùng thổ nhưỡng khác nhau, tạo nên một trải nghiệm tiệm cận gu thưởng thức cà phê thế giới. Vị chua nhẹ của hoa quả từ Arabica Cầu Đất hoà quyện cùng chất mạnh mẽ của Robusta cao cấp từ Gia Lai – một hương vị cân bằng và đậm mượt đầy tinh tế. Bộ sưu tập lần này còn đặc biệt hơn khi có sự xuất hiện của Nấm Truffle – ‘Kim Cương Đen’ trong nền ẩm thực, sẵn sàng chiều lòng mọi vị khách.', 'https://phela.vn/wp-content/uploads/2023/06/cover-web.jpg', '2024-06-17 18:51:22');
 
 -- --------------------------------------------------------
 
@@ -95,18 +95,6 @@ CREATE TABLE `cart` (
   `image` varchar(255) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `cart_view`
--- (See below for the actual view)
---
-CREATE TABLE `cart_view` (
-`name` varchar(255)
-,`price` int(11)
-,`quantity` int(11)
-);
 
 -- --------------------------------------------------------
 
@@ -150,7 +138,9 @@ INSERT INTO `messages` (`msg_id`, `users_id`, `content`, `created_at`) VALUES
 (22, 24, 'Mình thường đến quán này để thư giãn sau giờ làm việc', '2024-06-12 17:33:23'),
 (23, 22, 'Đồ uống ở đây rất ngon và trình bày đẹp mắt', '2024-06-10 16:50:38'),
 (24, 20, 'Quán có nhiều loại đồ uống mới lạ và hấp dẫn', '2024-06-12 17:33:23'),
-(25, 15, 'Nhân viên luôn thân thiện và nhiệt tình với khách', '2024-06-10 16:50:39');
+(25, 15, 'Nhân viên luôn thân thiện và nhiệt tình với khách', '2024-06-10 16:50:39'),
+(27, 31, 'Cà phê cửa hàng rất ngon', '2024-06-18 05:52:53'),
+(28, 31, 'demo', '2024-06-18 05:54:15');
 
 -- --------------------------------------------------------
 
@@ -173,8 +163,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orders_id`, `users_id`, `admins_id`, `status`, `payment_method`, `created_at`, `address`) VALUES
-(1, 14, 10, 'delivered', 'QR', '2024-06-12 17:56:49', 'Số 1 Đại Cồ Việt, Hà Nội, Việt Nam'),
-(2, 23, 4, 'finished', 'COD', '2024-06-12 17:56:49', 'Cổng Trần Đại Nghĩa, ĐHBK Hà Nội, Hà Nội, Việt Nam'),
+(1, 14, 2, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 1 Đại Cồ Việt, Hà Nội, Việt Nam'),
+(2, 23, 2, 'finished', 'COD', '2024-06-12 17:56:49', 'Cổng Trần Đại Nghĩa, ĐHBK Hà Nội, Hà Nội, Việt Nam'),
 (3, 5, 4, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 12 Phố Huế, Hà Nội, Việt Nam'),
 (4, 8, 4, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 34 Nguyễn Trãi, Hà Nội, Việt Nam'),
 (5, 20, 6, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 21 Lê Duẩn, Hà Nội, Việt Nam'),
@@ -183,8 +173,8 @@ INSERT INTO `orders` (`orders_id`, `users_id`, `admins_id`, `status`, `payment_m
 (8, 3, 6, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 8 Lý Thường Kiệt, Hà Nội, Việt Nam'),
 (9, 19, 6, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 22 Tôn Đức Thắng, Hà Nội, Việt Nam'),
 (10, 7, 2, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 18 Trần Hưng Đạo, Hà Nội, Việt Nam'),
-(11, 1, 2, 'delivered', 'QR', '2024-06-12 17:56:49', 'Số 33 Láng Hạ, Hà Nội, Việt Nam'),
-(12, 16, 2, 'processing', 'COD', '2024-06-12 17:56:49', 'Số 15 Cầu Giấy, Hà Nội, Việt Nam'),
+(11, 1, 2, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 33 Láng Hạ, Hà Nội, Việt Nam'),
+(12, 16, 2, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 15 Cầu Giấy, Hà Nội, Việt Nam'),
 (13, 10, 2, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 11 Tây Hồ, Hà Nội, Việt Nam'),
 (14, 24, 2, 'delivered', 'QR', '2024-06-12 17:56:49', 'Số 28 Hoàng Quốc Việt, Hà Nội, Việt Nam'),
 (15, 6, 2, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 37 Kim Mã, Hà Nội, Việt Nam'),
@@ -197,9 +187,10 @@ INSERT INTO `orders` (`orders_id`, `users_id`, `admins_id`, `status`, `payment_m
 (22, 17, 2, 'processing', 'QR', '2024-06-12 17:56:49', 'Số 29 Nguyễn Chí Thanh, Hà Nội, Việt Nam'),
 (23, 13, 2, 'delivered', 'COD', '2024-06-12 17:56:49', 'Số 6 Thanh Xuân, Hà Nội, Việt Nam'),
 (24, 2, 2, 'finished', 'QR', '2024-06-12 17:56:49', 'Số 19 Ba Đình, Hà Nội, Việt Nam'),
-(25, 22, 2, 'processing', 'COD', '2024-06-12 17:56:49', 'Số 13 Đông Anh, Hà Nội, Việt Nam'),
-(26, 30, 2, 'processing', 'QR', NULL, 'ĐHBKHN'),
-(27, 1, 10, 'finished', 'QR', '2024-06-17 20:03:27', 'Khu Ngoại Giao Đoàn, Xuân Tảo, Bắc Từ Liêm, Hà ');
+(25, 22, 2, 'finished', 'COD', '2024-06-12 17:56:49', 'Số 13 Đông Anh, Hà Nội, Việt Nam'),
+(26, 30, 2, 'finished', 'QR', '2024-06-12 17:56:49', 'ĐHBKHN'),
+(27, 1, 10, 'finished', 'QR', '2024-06-17 20:03:27', 'Khu Ngoại Giao Đoàn, Xuân Tảo, Bắc Từ Liêm, Hà '),
+(28, 31, 2, 'delivered', 'COD', '2024-06-18 05:46:03', 'Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội');
 
 -- --------------------------------------------------------
 
@@ -247,7 +238,9 @@ INSERT INTO `order_detail` (`orders_id`, `products_id`, `quantity`) VALUES
 (27, 3, 1),
 (27, 4, 1),
 (27, 7, 1),
-(27, 8, 1);
+(27, 8, 1),
+(28, 3, 2),
+(28, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -275,7 +268,7 @@ INSERT INTO `products` (`products_id`, `image`, `name`, `price`, `description`) 
 (5, 'https://product.hstatic.net/1000075078/product/1639377770_cfsua-nong_9a47f58888e7444a9979e0d117d49ad3.jpg', 'Cà phê sữa nóng', 39000, 'Cà phê được pha phin truyền thống kết hợp với sữa đặc tạo nên hương vị đậm đà, hài hòa giữa vị ngọt đầu lưỡi và vị đắng thanh thoát nơi hậu vị.'),
 (6, 'https://product.hstatic.net/1000075078/product/1639377904_bac-siu_525b9fa5055b41f183088c8e479a9472.jpg', 'Bạc sỉu', 29000, 'Bạc sỉu chính là \"Ly sữa trắng kèm một chút cà phê\". Thức uống này rất phù hợp những ai vừa muốn trải nghiệm chút vị đắng của cà phê vừa muốn thưởng thức vị ngọt béo ngậy từ sữa.'),
 (7, 'https://product.hstatic.net/1000075078/product/1639377926_bacsiunong_51fd4560c6b74a249176abc43f8f0ad6.jpg', 'Bạc sỉu nóng', 39000, 'Bạc sỉu chính là \"Ly sữa trắng kèm một chút cà phê\". Thức uống này rất phù hợp những ai vừa muốn trải nghiệm chút vị đắng của cà phê vừa muốn thưởng thức vị ngọt béo ngậy từ sữa.'),
-(8, 'https://product.hstatic.net/1000075078/product/1639377797_ca-phe-den-da_6f4766ec0f8b4e929a8d916ae3c13254.jp', 'Cà phê đen đá', 39000, 'Không ngọt ngào như Bạc sỉu hay Cà phê sữa, Cà phê đen mang trong mình phong vị trầm lắng, thi vị hơn. Người ta thường phải ngồi rất lâu mới cảm nhận được hết hương thơm ngào ngạt, phảng phất mùi cacao và cái đắng mượt mà trôi tuột xuống vòm họng.'),
+(8, 'https://th.bing.com/th/id/OIP.h_l89ZOAXy8aU42fe9U28wHaHa?rs=1&pid=ImgDetMain', 'Cà phê đen đá', 39000, 'Không ngọt ngào như Bạc sỉu hay Cà phê sữa, Cà phê đen mang trong mình phong vị trầm lắng, thi vị hơn. Người ta thường phải ngồi rất lâu mới cảm nhận được hết hương thơm ngào ngạt, phảng phất mùi cacao và cái đắng mượt mà trôi tuột xuống vòm họng.'),
 (9, 'https://product.hstatic.net/1000075078/product/1686716537_dd-latte_785591205184481597a2a79b9331e03b.jpg', 'Đường đen Marble Latte', 55000, 'Đường Đen Marble Latte êm dịu cực hấp dẫn bởi vị cà phê đắng nhẹ hoà quyện cùng vị đường đen ngọt thơm và sữa tươi béo mịn. Sự kết hợp đầy mới mẻ của cà phê và đường đen cũng tạo nên diện mạo phân tầng đẹp mắt. Đây là lựa chọn đáng thử để bạn khởi đầu ngày mới đầy hứng khởi. - Khuấy đều trước khi sử dụng'),
 (10, 'https://product.hstatic.net/1000075078/product/caramel-macchiato_143623_0e070a39d0e54e808db4d91049430b51.jpg', 'Caramel Machiato', 55000, 'Khuấy đều trước khi sử dụng Caramel Macchiato sẽ mang đến một sự ngạc nhiên thú vị khi vị thơm béo của bọt sữa, sữa tươi, vị đắng thanh thoát của cà phê Espresso hảo hạng và vị ngọt đậm của sốt caramel được gói gọn trong một tách cà phê.'),
 (11, 'https://product.hstatic.net/1000075078/product/latte-da_438410_ff2be8d76067434385f8e27b33fed780.jpg', 'Latte', 50000, 'Một sự kết hợp tinh tế giữa vị đắng cà phê Espresso nguyên chất hòa quyện cùng vị sữa nóng ngọt ngào, bên trên là một lớp kem mỏng nhẹ tạo nên một tách cà phê hoàn hảo về hương vị lẫn nhãn quan.'),
@@ -293,7 +286,8 @@ INSERT INTO `products` (`products_id`, `image`, `name`, `price`, `description`) 
 (23, 'https://product.hstatic.net/1000075078/product/1709005899_kimquat-xuan-1_eb248c1e71904e5f9323e2ba6a7b8d4f.jpg', 'Oolong Tứ Qúy Kim Quất Trân Châu', 49000, 'Đậm hương trà, sảng khoái du xuân cùng Oolong Tứ Quý Kim Quất Trân Châu. Vị nước cốt kim quất tươi chua ngọt, thêm trân châu giòn dai.'),
 (24, 'https://product.hstatic.net/1000075078/product/1709004168_vai-xuan-1_00a490efb43a4da187882d95337b2db9.jpg', 'Oolong Tứ Qúy Vải', 49000, 'Đậm hương trà, thanh mát sắc xuân với Oolong Tứ Quý Vải. Cảm nhận hương hoa đầu mùa, hòa quyện cùng vị vải chín mọng căng tràn sức sống.'),
 (25, 'https://product.hstatic.net/1000075078/product/tra-sen_905594_cb9a4dfb65884b33811ab70d149a5387.jpg', 'Oolong Tứ Qúy Sen', 49000, 'Nền trà oolong hảo hạng kết hợp cùng hạt sen tươi, bùi bùi và lớp foam cheese béo ngậy. Trà hạt sen là thức uống thanh mát, nhẹ nhàng phù hợp cho cả buổi sáng và chiều tối.'),
-(28, '../uploads/14721.jpg', ' PHÙ VÂN', 45000, 'Trà Ô Long Đỏ thượng hạng kết hợp cùng kem whipping nhẹ nhàng, sánh ngậy.');
+(33, 'https://phela.vn/wp-content/uploads/2021/07/14721.jpg', ' PHÙ VÂN', 45000, 'Trà Ô Long Đỏ thượng hạng kết hợp cùng kem whipping nhẹ nhàng, sánh ngậy.'),
+(34, 'https://phela.vn/wp-content/uploads/2021/07/14853.jpg', ' PHAN XI PĂNG', 54000, '(Sản phẩm đá xay và có thể bị tan với khoảng cách xa trên 3,5km) Trà Ô Long Đỏ Đặc Sản đậm đà kết hợp cùng cốt dừa đá xay mát lạnh.');
 
 -- --------------------------------------------------------
 
@@ -343,16 +337,8 @@ INSERT INTO `users` (`users_id`, `username`, `password`, `fullname`, `phone`) VA
 (27, 'userdemo@demo', '$2y$10$niZzIQ5gKMia1cpp.mMd2ek5LQckNaXoR6f6KQQPqHC4qTmJz/hzC', 'Khanh Quynh', '0345789610'),
 (28, 'gru@cafe', '$2y$10$r3ewQlzW8milhbT4M9zhbeQ9Yu3V5Fq2DPnUSXyYbbhjlBNX0YNo.', 'gru', '12345678'),
 (29, 'quynh@dozecafe.com', '$2y$10$TqHwx10VKB8dgYyuD5ciMumCd5SGXw3VC3m9sTiE81fqt0CrylO8O', 'Trần Khánh Quỳnh', '0929384186'),
-(30, 'quynh@dozecafe.com', '$2y$10$TqHwx10VKB8dgYyuD5ciMumCd5SGXw3VC3m9sTiE81fqt0CrylO8O', 'Trần Khánh Quỳnh', '0123456789');
-
--- --------------------------------------------------------
-
---
--- Structure for view `cart_view`
---
-DROP TABLE IF EXISTS `cart_view`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cart_view`  AS SELECT `products`.`name` AS `name`, `products`.`price` AS `price`, `order_detail`.`quantity` AS `quantity` FROM (`products` join `order_detail` on(`products`.`products_id` = `order_detail`.`products_id`)) ;
+(30, 'customer26@gmail.com', '12345678', 'Customer26', '0987654321'),
+(31, 'nhi@dozecafe.com', 'nho', 'bùi ý nhi', '0974821363');
 
 --
 -- Indexes for dumped tables
@@ -370,6 +356,12 @@ ALTER TABLE `admins`
 ALTER TABLE `blog_posts`
   ADD PRIMARY KEY (`blog_id`),
   ADD KEY `admins_id` (`admins_id`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `messages`
@@ -419,31 +411,37 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `blog_posts`
 --
 ALTER TABLE `blog_posts`
-  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `orders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `products_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `products_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `users_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `users_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables
