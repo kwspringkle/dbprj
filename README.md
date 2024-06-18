@@ -11,7 +11,7 @@
 ### Cách chạy:
 -Sử dụng XAMPP
 
-Cài xampp, clone repo và đưa project vào file htdocs. Start Apache và MySQL
+Cài xampp, clone repo và đưa project vào folder htdocs. Start Apache và MySQL
 -->Mở web browser: `http://localhost`
 
 Thêm database (lưu trong thư mục database) vào phpmyadmin, đặt tên database là coffeeshop để có thể kết nối với web.
