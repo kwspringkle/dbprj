@@ -40,7 +40,7 @@ http://localhost/dbprj/admin_page/login.php
 ```
 Tài khoản superadmin:
 ```sh
-username: 	superadmin;
+username: superadmin;
 password: 1234567
 ```
 Tài khoản admin:
