@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Insert each product into order_detail table
         while ($cart_row = mysqli_fetch_assoc($cart_result)) {
-            $cart_id = $cart_row['cart_id']; // Optional: If you need cart_id for further processing
+             $cart_id = $cart_row['cart_id']; // Optional: If you need cart_id for further processing
 
             $product_id = $cart_row['product_id'];
             $quantity = $cart_row['quantity'];

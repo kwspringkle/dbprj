@@ -2,7 +2,6 @@
 // Include your database connection file here
 include("connectdb.php");
 
-// Initialize session
 
 
 // Check if the form is submitted
